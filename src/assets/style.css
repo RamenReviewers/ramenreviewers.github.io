@@ -1,3 +1,5 @@
+
+
 body::before {
     content: "";
     position: fixed; /* Use fixed position instead of absolute */
@@ -25,6 +27,7 @@ body::after {
 
 .card {
     width: 300px;
+    background-color: #F5F5F5
 }
 
 .card-img-top {
@@ -33,13 +36,16 @@ body::after {
     width: 200px;
 }
 
+.card-link {
+    color: #e34242
+}
+
 .score-ico{
     width:45px;
     height:45px;
 }
 
-footer a {
-    text-decoration: none;
+footer a, footer p {
     color: white;
     font-size: 9pt;
 }
