@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /** Class containing data for a review */
 public record Review(String shopTitle, String dishName, ArrayList<String> reviewerNames, String city, int scoreBroth,
                      int scoreNoodles, int scoreToppings, int scoreAtmosphere, ArrayList<LinkWrapper> links,
-                     float totalScore) {
+                     float totalScore, String picturePath) {
 
 
     public static final int MAX_TOTAL_SCORE = 5;
