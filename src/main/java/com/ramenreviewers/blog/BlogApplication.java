@@ -1,22 +1,22 @@
-package com.example.blog;
+package com.ramenreviewers.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-@SpringBootApplication
+
 public class BlogApplication {
 
     public static void main(String[] args) {
-        var applicationContext = SpringApplication.run(BlogApplication.class, args);
 
         // get all reviews and pars them
         var reviews = new ArrayList<Review>();
@@ -40,8 +40,11 @@ public class BlogApplication {
         }
 
         // generate the html content
-        ReviewTemplateProcessor processor = new ReviewTemplateProcessor(applicationContext);
-        String processed = processor.processTemplate(reviews);
+
+
+        String processed = ReviewTemplateProcessor.processTemplate(reviews);
+
+
         try (FileWriter fileWriter = new FileWriter("index.html")) {
             fileWriter.write(processed);
         } catch (Exception e) {

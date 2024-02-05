@@ -1,4 +1,4 @@
-package com.example.blog;
+package com.ramenreviewers.blog;
 
 import java.util.ArrayList;
 
