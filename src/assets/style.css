@@ -1,0 +1,45 @@
+body::before {
+    content: "";
+    position: fixed; /* Use fixed position instead of absolute */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85); /* Adjust the alpha value for the desired level of transparency */
+    z-index: -1;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('img/mount_fuji.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%); /* Apply greyscale effect */
+    z-index: -2; /* Place the image behind the overlay */
+}
+
+.card {
+    width: 300px;
+}
+
+.card-img-top {
+    aspect-ratio: auto;
+    object-fit: contain;
+    width: 200px;
+}
+
+.score-ico{
+    width:45px;
+    height:45px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-size: 9pt;
+}
