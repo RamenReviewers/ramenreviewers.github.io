@@ -60,7 +60,7 @@
 
                     <hr>
 
-                    <a th:each="wrapper : ${review.links()}" th:href="${wrapper.url()}" th:text="${wrapper.name()}"
+                    <a th:each="link : ${review.links()}" th:href="${link.url()}" th:text="${link.displayName()}"
                        class="card-link">Card link</a>
                 </div>
             </div>
