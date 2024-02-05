@@ -8,6 +8,7 @@ import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /** Class parsing review data for a thyme leaf template */
@@ -21,20 +22,11 @@ public class ReviewTemplateProcessor {
 
 
     public String processTemplate(List<Review> Reviews) {
-
-        // TODO delete this test code
-        String title = "Dynamic Title";
-        String content = "Dynamic Content";
+        // iterate through all reviews
         Context context = new Context();
-        context.setVariable("title", title);
-        context.setVariable("content", content);
-        return templateEngine.process("test", context);
+        context.setVariable("reviews", Reviews);
 
-        // TODO iterate through all reviews
-            // TODO parse data
-            // TODO add to root template?
-            // TODO ???
-            // TODO profit
+        return templateEngine.process("template", context);
     }
 
 

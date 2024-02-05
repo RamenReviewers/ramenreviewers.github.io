@@ -1,0 +1,11 @@
+shopTitle: "Niko Niko"
+dishName: "Tonkutsu"
+reviewerName: ["Ice", "DerKekZ", "CrunchNCrisp"]
+scoreBroth: 5
+scoreNoodles: 5
+scoreToppings: 5
+scoreAtmosphere: 5
+city: "Berlin"
+cardLinks:
+  - location: "https://..."
+  - share: "next_link"
