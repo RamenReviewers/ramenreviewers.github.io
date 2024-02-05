@@ -2,13 +2,11 @@ package com.example.blog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
@@ -32,8 +30,9 @@ public class BlogApplication {
                 // read the yaml for the review data
                 var yamlPath = reviewDirectory + "\\" + directory + "\\review.yaml";
                 var reader = new FileReader(yamlPath);
-                var parsed = yaml.load(reader);
-                reviews.add(createReview((LinkedHashMap<String, Object>) parsed));
+                var parsed = (LinkedHashMap<String, Object>) yaml.load(reader);
+                parsed.put("picturePath", reviewDirectory + "\\" + directory + "\\thumbnail.png");
+                reviews.add(createReview(parsed));
             }
         } catch (Exception e) {
             System.out.println("Error parsing the reviews: " + e);
@@ -56,6 +55,7 @@ public class BlogApplication {
         var dishName = propertyMap.get("dishName").toString();
         var reviewerNames = (ArrayList<String>) propertyMap.get("reviewerName");
         var city = propertyMap.get("city").toString();
+        var picturePath = propertyMap.get("picturePath").toString();
 
         // clamp the scores
         var scoreBroth = Math.clamp((int) propertyMap.get("scoreBroth"), Review.MIN_SCORE,
@@ -82,6 +82,6 @@ public class BlogApplication {
         }
 
         return new Review(shopTitle, dishName, reviewerNames, city, scoreBroth, scoreNoodles, scoreToppings,
-                scoreAtmosphere, links, totalScore);
+                scoreAtmosphere, links, totalScore, picturePath);
     }
 }
