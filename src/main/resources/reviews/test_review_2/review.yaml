@@ -1,11 +1,1 @@
-shopTitle: "AAAAAAAAA"
-dishName: "Tonkutsu"
-reviewerName: ["Ice", "DerKekZ", "CrunchNCrisp"]
-scoreBroth: 6
-scoreNoodles: -1
-scoreToppings: 3
-scoreAtmosphere: 2
-city: "Berlin"
-cardLinks:
-  - location: "https://..."
-  - share: "next_link"
+invalidReview: "Test"

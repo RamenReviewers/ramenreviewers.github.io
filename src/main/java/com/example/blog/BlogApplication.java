@@ -51,21 +51,27 @@ public class BlogApplication {
 
     private static Review createReview(LinkedHashMap<String, Object> propertyMap) {
         // parse the default values
-        var shopTitle = propertyMap.get("shopTitle").toString();
-        var dishName = propertyMap.get("dishName").toString();
-        var reviewerNames = (ArrayList<String>) propertyMap.get("reviewerName");
-        var city = propertyMap.get("city").toString();
-        var picturePath = propertyMap.get("picturePath").toString();
+        var shopTitle = propertyMap.containsKey("shopTitle") ? propertyMap.get("shopTitle").toString() : "ERROR";
+        var dishName = propertyMap.containsKey("dishName") ? propertyMap.get("dishName").toString() : "ERROR";
+        var reviewerNames = propertyMap.containsKey("reviewerName")
+                ? (ArrayList<String>) propertyMap.get("reviewerName")
+                : new ArrayList<String>();
+        var city = propertyMap.containsKey("city") ? propertyMap.get("city").toString() : "ERROR";
+        var picturePath = propertyMap.containsKey("picturePath") ? propertyMap.get("picturePath").toString() : "ERROR";
 
         // clamp the scores
-        var scoreBroth = Math.clamp((int) propertyMap.get("scoreBroth"), Review.MIN_SCORE,
-                Review.MAX_SCORE_BROTH);
-        var scoreNoodles = Math.clamp((int) propertyMap.get("scoreNoodles"), Review.MIN_SCORE,
-                Review.MAX_SCORE_BROTH);
-        var scoreToppings = Math.clamp((int) propertyMap.get("scoreToppings"), Review.MIN_SCORE,
-                Review.MAX_SCORE_TOPPINGS);
-        var scoreAtmosphere = Math.clamp((int) propertyMap.get("scoreAtmosphere"), Review.MIN_SCORE,
-                Review.MAX_SCORE_ATMOSPHERE);
+        var scoreBroth = propertyMap.containsKey("scoreBroth")
+                ? Math.clamp((int) propertyMap.get("scoreBroth"), Review.MIN_SCORE, Review.MAX_SCORE_BROTH)
+                : -1;
+        var scoreNoodles = propertyMap.containsKey("scoreNoodles")
+                ? Math.clamp((int) propertyMap.get("scoreNoodles"), Review.MIN_SCORE, Review.MAX_SCORE_BROTH)
+                : -1;
+        var scoreToppings = propertyMap.containsKey("scoreToppings")
+                ? Math.clamp((int) propertyMap.get("scoreToppings"), Review.MIN_SCORE, Review.MAX_SCORE_TOPPINGS)
+                : -1;
+        var scoreAtmosphere = propertyMap.containsKey("scoreAtmosphere")
+                ? Math.clamp((int) propertyMap.get("scoreAtmosphere"), Review.MIN_SCORE, Review.MAX_SCORE_ATMOSPHERE)
+                : -1;
 
         // calculate the total score
         var totalScore = Review.MAX_TOTAL_SCORE * (float) (scoreBroth + scoreNoodles + scoreToppings + scoreAtmosphere)
@@ -74,10 +80,12 @@ public class BlogApplication {
 
         // parse the specified links
         var links = new ArrayList<LinkWrapper>();
-        var linkValues = (ArrayList<LinkedHashMap<String, Object>>) propertyMap.get("cardLinks");
-        for (var maps : linkValues) {
-            for (var keyPair : maps.entrySet()) {
-                links.add(new LinkWrapper(keyPair.getKey(), keyPair.getValue().toString()));
+        if(propertyMap.containsKey("cardLinks")) {
+            var linkValues = (ArrayList<LinkedHashMap<String, Object>>) propertyMap.get("cardLinks");
+            for (var maps : linkValues) {
+                for (var keyPair : maps.entrySet()) {
+                    links.add(new LinkWrapper(keyPair.getKey(), keyPair.getValue().toString()));
+                }
             }
         }
 
