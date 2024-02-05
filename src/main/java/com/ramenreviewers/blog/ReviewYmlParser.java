@@ -1,24 +1,29 @@
 package com.ramenreviewers.blog;
 
+import com.ramenreviewers.blog.model.LinkWrapper;
+import com.ramenreviewers.blog.model.Review;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ReviewYmlParser {
 
+    private static final String MISSING_PROPERTY_DEFAULT_STRING = "MISSING";
 
     public static Review parseReview(File reviewDirectory, String directory) {
         try {
             // Read the YAML for the review data
             String yamlPath = reviewDirectory + "\\" + directory + "\\review.yaml";
             FileReader reader = new FileReader(yamlPath);
-            Map<String, Object> parsed = new Yaml().load(reader);
-            parsed.put("picturePath", reviewDirectory + "\\" + directory + "\\thumbnail.png");
-            return createReview(parsed);
+            Map<String, Object> propertyMap = new Yaml().load(reader);
+
+            propertyMap.put("picturePath", reviewDirectory + "\\" + directory + "\\thumbnail.png");
+            return createReview(propertyMap);
 
         } catch (Exception e) {
             System.out.println("Error parsing the review in directory " + directory + ": " + e);
@@ -27,11 +32,11 @@ public class ReviewYmlParser {
     }
 
     public static Review createReview(Map<String, Object> propertyMap) {
-        var shopTitle = getStringValue(propertyMap, "shopTitle", "ERROR");
-        var dishName = getStringValue(propertyMap, "dishName", "ERROR");
+        var shopTitle = getStringValue(propertyMap, "shopTitle");
+        var dishName = getStringValue(propertyMap, "dishName");
         var reviewerNames = getListValue(propertyMap, "reviewerName", new ArrayList<>());
-        var city = getStringValue(propertyMap, "city", "ERROR");
-        var picturePath = getStringValue(propertyMap, "picturePath", "ERROR");
+        var city = getStringValue(propertyMap, "city");
+        var picturePath = getStringValue(propertyMap, "picturePath");
 
         var scoreBroth = getIntScoreValue(propertyMap, "scoreBroth", Review.MIN_SCORE, Review.MAX_SCORE_BROTH);
         var scoreNoodles = getIntScoreValue(propertyMap, "scoreNoodles", Review.MIN_SCORE, Review.MAX_SCORE_BROTH);
@@ -46,8 +51,8 @@ public class ReviewYmlParser {
                 scoreAtmosphere, links, totalScore, picturePath);
     }
 
-    private static String getStringValue(Map<String, Object> propertyMap, String key, String defaultValue) {
-        return propertyMap.containsKey(key) ? propertyMap.get(key).toString() : defaultValue;
+    private static String getStringValue(Map<String, Object> propertyMap, String key) {
+        return propertyMap.containsKey(key) ? propertyMap.get(key).toString() : MISSING_PROPERTY_DEFAULT_STRING;
     }
 
     private static ArrayList<String> getListValue(Map<String, Object> propertyMap, String key, ArrayList<String> defaultValue) {
@@ -67,7 +72,7 @@ public class ReviewYmlParser {
     private static ArrayList<LinkWrapper> getLinkWrappers(Map<String, Object> propertyMap) {
         var links = new ArrayList<LinkWrapper>();
         if (propertyMap.containsKey("cardLinks")) {
-            var linkValues = (ArrayList<LinkedHashMap<String, Object>>) propertyMap.get("cardLinks");
+            var linkValues = (ArrayList<Map<String, Object>>) propertyMap.get("cardLinks");
             links.addAll(linkValues.stream()
                     .flatMap(maps -> maps.entrySet().stream())
                     .map(keyPair -> new LinkWrapper(keyPair.getKey(), keyPair.getValue().toString()))

@@ -1,10 +1,9 @@
 package com.ramenreviewers.blog;
 
-import org.springframework.context.ApplicationContext;
+import com.ramenreviewers.blog.model.Review;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
-import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 

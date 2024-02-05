@@ -1,18 +1,11 @@
 package com.ramenreviewers.blog;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
-import org.yaml.snakeyaml.Yaml;
+import com.ramenreviewers.blog.model.Review;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 import static com.ramenreviewers.blog.ReviewYmlParser.parseReview;
 
