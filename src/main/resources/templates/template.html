@@ -41,36 +41,11 @@
                 </h6>
                 <img th:src="${review.picturePath()}" class="card-img-top mx-auto d-block p-2" alt="Card Image">
                 <div class="card-body text-center">
-                    <span>
-                        <img th:if="${review.totalScore() >= 1}" class="score-ico"
-                             src="src/assets/img/ramen_outlined.png" alt="ramen"/>
-                        <img th:unless="${review.totalScore() >= 1}" class="score-ico"
-                             src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
+                    <span th:each="scoreItem : ${#numbers.sequence(1, 5)}">
+                            <img th:if="${review.totalScore() >= scoreItem}" src="src/assets/img/ramen_outlined.png" class="score-ico" alt="ramen"/>
+                            <img th:unless="${review.totalScore() >= scoreItem}" class="score-ico" src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
                     </span>
-                    <span>
-                        <img th:if="${review.totalScore() >= 2}" class="score-ico"
-                             src="src/assets/img/ramen_outlined.png" alt="ramen"/>
-                        <img th:unless="${review.totalScore() >= 2}" class="score-ico"
-                             src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
-                    </span>
-                    <span>
-                        <img th:if="${review.totalScore() >= 3}" class="score-ico"
-                             src="src/assets/img/ramen_outlined.png" alt="ramen"/>
-                        <img th:unless="${review.totalScore() >= 3}" class="score-ico"
-                             src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
-                    </span>
-                    <span>
-                        <img th:if="${review.totalScore() >= 4}" class="score-ico"
-                             src="src/assets/img/ramen_outlined.png" alt="ramen"/>
-                        <img th:unless="${review.totalScore() >= 4}" class="score-ico"
-                             src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
-                    </span>
-                    <span>
-                        <img th:if="${review.totalScore() >= 5}" class="score-ico"
-                             src="src/assets/img/ramen_outlined.png" alt="ramen"/>
-                        <img th:unless="${review.totalScore() >= 5}" class="score-ico"
-                             src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
-                    </span>
+
 
                     <div class="my-4"></div>
 
