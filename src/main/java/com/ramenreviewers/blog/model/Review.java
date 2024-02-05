@@ -1,10 +1,10 @@
 package com.ramenreviewers.blog.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /** Class containing data for a review */
-public record Review(String shopTitle, String dishName, ArrayList<String> reviewerNames, String city, int scoreBroth,
-                     int scoreNoodles, int scoreToppings, int scoreAtmosphere, ArrayList<LinkWrapper> links,
+public record Review(String shopTitle, String dishName, List<String> reviewerNames, String city, int scoreBroth,
+                     int scoreNoodles, int scoreToppings, int scoreAtmosphere, List<Link> links,
                      float totalScore, String picturePath) {
 
 

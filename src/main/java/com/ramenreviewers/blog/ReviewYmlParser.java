@@ -1,13 +1,12 @@
 package com.ramenreviewers.blog;
 
-import com.ramenreviewers.blog.model.LinkWrapper;
+import com.ramenreviewers.blog.model.Link;
 import com.ramenreviewers.blog.model.Review;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +44,7 @@ public class ReviewYmlParser {
 
         var totalScore = calculateTotalScore(scoreBroth, scoreNoodles, scoreToppings, scoreAtmosphere);
 
-        var links = getLinkWrappers(propertyMap);
+        var links = getCardLinks(propertyMap);
 
         return new Review(shopTitle, dishName, reviewerNames, city, scoreBroth, scoreNoodles, scoreToppings,
                 scoreAtmosphere, links, totalScore, picturePath);
@@ -69,15 +68,16 @@ public class ReviewYmlParser {
                 + Review.MAX_SCORE_ATMOSPHERE);
     }
 
-    private static ArrayList<LinkWrapper> getLinkWrappers(Map<String, Object> propertyMap) {
-        var links = new ArrayList<LinkWrapper>();
-        if (propertyMap.containsKey("cardLinks")) {
-            var linkValues = (ArrayList<Map<String, Object>>) propertyMap.get("cardLinks");
-            links.addAll(linkValues.stream()
-                    .flatMap(maps -> maps.entrySet().stream())
-                    .map(keyPair -> new LinkWrapper(keyPair.getKey(), keyPair.getValue().toString()))
-                    .toList());
+    private static List<Link> getCardLinks(Map<String, Object> propertyMap) {
+        if (!propertyMap.containsKey("cardLinks")){
+            new ArrayList<Link>();;
         }
-        return links;
+
+        var linkValues = (ArrayList<Map<String, Object>>) propertyMap.get("cardLinks");
+        return linkValues.stream()
+                .flatMap(maps -> maps.entrySet().stream())
+                .map(keyPair -> new Link(keyPair.getKey(), keyPair.getValue().toString()))
+                .toList();
+
     }
 }
