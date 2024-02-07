@@ -1,4 +1,4 @@
-shopTitle: "Niko Niko"
+shopTitle: "Niko Niko Ramen"
 dishName: "Tonkutsu"
 reviewerName: ["Ice", "DerKekZ", "CrunchNCrisp"]
 scoreBroth: 5
@@ -8,4 +8,3 @@ scoreAtmosphere: 2
 city: "Berlin"
 cardLinks:
   - Restaurant Website: "https://nikoniko-ramen.com/"
-  - share: "next_link"
