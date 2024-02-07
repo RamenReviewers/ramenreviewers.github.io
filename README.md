@@ -1,2 +1,2 @@
 # Ramen Reviwers
-Website for our ramen reviewes
+Website for our ramen reviews
