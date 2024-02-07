@@ -12,7 +12,7 @@ import static com.ramenreviewers.blog.ReviewYmlParser.parseReview;
 
 public class BlogApplication {
 
-    private static final String REVIEW_DIRECTORY = "src/main/resources/reviews";
+    private static final String REVIEWS_DIRECTORY = "src/main/resources/reviews";
 
 
     public static void main(String[] args) {
@@ -21,16 +21,16 @@ public class BlogApplication {
         List<Review> reviews;
 
         // get all review directories
-        var reviewDirectory = new File(REVIEW_DIRECTORY);
-        String[] directories = reviewDirectory.list((current, name) -> new File(current, name).isDirectory());
+        var reviewsDirectory = new File(REVIEWS_DIRECTORY);
+        String[] reviewDirectories = reviewsDirectory.list((current, name) -> new File(current, name).isDirectory());
 
-        if (directories == null) {
-            System.err.println("review directories are empty");
+        if (reviewDirectories == null) {
+            System.err.println("no review directories");
             return;
         }
 
-        reviews = Arrays.stream(directories)
-                .map(directory -> parseReview(reviewDirectory, directory))
+        reviews = Arrays.stream(reviewDirectories)
+                .map(directory -> parseReview(reviewsDirectory, directory))
                 .filter(Objects::nonNull)
                 .toList();
 
