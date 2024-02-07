@@ -33,13 +33,13 @@
     <div class="row">
         <div class="col-lg-3 col-md-6 mb-4" th:each="review : ${reviews}">
             <div class="card">
-                <h4 class="card-header text-center mt-2" th:text="${review.shopTitle()}">
-                    Ramen Shop Title
-                </h4>
-                <h6 class="card-header text-center mb-2" th:text="${review.dishName()}">
-                    Dish Name
-                </h6>
-                <img th:src="${review.picturePath()}" class="card-img-top mx-auto d-block p-2" alt="Card Image">
+                <div class="text-center mt-3 mb-1">
+                    <h4 th:text="${review.shopTitle()}">Ramen Shop Title</h4>
+                    <h6 th:text="${review.dishName()}">Dish Name</h6>
+                </div>
+
+
+                <img th:src="${review.picturePath()}" class="card-img mx-auto d-block rounded-0" alt="Card Image">
                 <div class="card-body text-center">
                     <span th:each="scoreItem : ${#numbers.sequence(1, 5)}">
                             <img th:if="${review.totalScore() >= scoreItem}" src="src/assets/img/ramen_outlined.png" class="score-ico" alt="ramen"/>
