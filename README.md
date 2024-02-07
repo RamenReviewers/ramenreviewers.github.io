@@ -1,2 +1,2 @@
-# Blog
-Website for our Ramen Reviewers Blog
+# Ramen Reviwers
+Website for our ramen reviewes
