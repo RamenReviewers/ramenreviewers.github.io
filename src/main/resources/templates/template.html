@@ -9,6 +9,8 @@
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+          integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
     <link rel="stylesheet" href="src/assets/style.css">
 
 
@@ -30,16 +32,11 @@
     </h1>
     <h3 class="text-white mb-5"><small>Rating Vegan Ramen</small></h3>
 
-    <div class="row">
-        <div class="col-lg-3 col-md-6 mb-4" th:each="review : ${reviews}">
-            <div class="card border-0">
-                <div class="bg-dark text-white text-right align-middle py-1 border border-dark rounded-top d-flex justify-content-around">
+    <div class="row mb-6">
+        <div class="col-lg-3 col-md-6" th:each="review : ${reviews}">
+            <div class="card border-0 text-dark">
 
-                    <span class="mx-1" th:text=|📍&nbsp;${review.city()}|></span>
-
-                </div>
-
-                <img th:src="${review.picturePath()}" class="card-img-top border-0" alt="Card Image">
+                <img th:src="${review.picturePath()}" class="card-img-top border-0 shadow" alt="Card Image">
 
 
                 <div class="card-header text-center">
@@ -59,24 +56,31 @@
                 </div>
 
 
-                <div class="card-body text-center">
-                    <p class="card-text" th:text=|Broth:&nbsp;${review.scoreBroth()}/${review.MAX_SCORE_BROTH}|></p>
+                <div class="card-body fs-5">
                     <p class="card-text"
-                       th:text=|Noodles:&nbsp;${review.scoreNoodles()}/${review.MAX_SCORE_NOODLES}|></p>
+                       th:text=|broth:&nbsp;${review.scoreBroth()}/${review.MAX_SCORE_BROTH}|></p>
                     <p class="card-text"
-                       th:text=|Toppings:&nbsp;${review.scoreToppings()}/${review.MAX_SCORE_TOPPINGS}|></p>
+                       th:text=|noodles:&nbsp;${review.scoreNoodles()}/${review.MAX_SCORE_NOODLES}|></p>
                     <p class="card-text"
-                       th:text=|Atmosphere:&nbsp;${review.scoreAtmosphere()}/${review.MAX_SCORE_ATMOSPHERE}|></p>
+                       th:text=|toppings:&nbsp;${review.scoreToppings()}/${review.MAX_SCORE_TOPPINGS}|></p>
+                    <p class="card-text"
+                       th:text=|atmosphere:&nbsp;${review.scoreAtmosphere()}/${review.MAX_SCORE_ATMOSPHERE}|></p>
                 </div>
 
                 <div class="card-footer text-center">
-                    <a class="card-link" th:each="link : ${review.links()}" th:href="${link.url()}"
-                    th:text="${link.displayName()}">Card link</a>
+                    <i class="bi bi-geo-alt-fill"></i><span class="mx-1" th:text="${review.city()}"></span>
                     <br>
-                    <span class="text-secondary"
-                          th:each=" reviewer: ${review.reviewerNames()}"
+                    <i class="bi bi-people-fill"></i>
+                    <span th:each=" reviewer: ${review.reviewerNames()}"
                           th:text=|&nbsp;${reviewer}|>
                     </span>
+                    <br>
+                    <p class="card-link" th:each="link : ${review.links()}">
+                        <i class="bi bi-link-45deg"></i>
+                        <a  th:href="${link.url()}" th:text="${link.displayName()}">Card link</a>
+                    </p>
+
+
                 </div>
 
 

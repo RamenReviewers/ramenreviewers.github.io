@@ -7,4 +7,4 @@ scoreToppings: 4
 scoreAtmosphere: 2
 city: "Berlin"
 cardLinks:
-  - Restaurant Website: "https://nikoniko-ramen.com/"
+  - nikoniko-ramen.com: "https://nikoniko-ramen.com/"
