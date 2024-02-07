@@ -45,6 +45,11 @@ body::after {
     height:45px;
 }
 
+.rating-item{
+    min-width: 90px;
+    margin-top: 15px;
+}
+
 footer a, footer p {
     color: white;
     font-size: 9pt;
