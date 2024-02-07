@@ -1,10 +1,11 @@
-shopTitle: "Niko Niko Ramen"
-dishName: "Tonkutsu"
-reviewerName: ["Ice", "DerKekZ", "CrunchNCrisp"]
+!!com.ramenreviewers.blog.model.Review
+shop: "Niko Niko Ramen"
+dish: "Tonkutsu"
+reviewers: ["Ice", "DerKekZ", "CrunchNCrisp"]
 scoreBroth: 5
-scoreNoodles: 3
+scoreNoodles: 3.5
 scoreToppings: 4
 scoreAtmosphere: 2
-city: "Berlin"
-cardLinks:
+location: "Berlin"
+links:
   - nikoniko-ramen.com: "https://nikoniko-ramen.com/"

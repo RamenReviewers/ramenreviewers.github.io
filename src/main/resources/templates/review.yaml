@@ -1,3 +1,4 @@
+!!com.ramenreviewers.blog.model.Review
 shop: "NAME"
 dish: "NAME"
 reviewers: []
