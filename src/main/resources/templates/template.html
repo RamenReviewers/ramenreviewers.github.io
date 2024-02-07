@@ -33,31 +33,38 @@
     <div class="row">
         <div class="col-lg-3 col-md-6 mb-4" th:each="review : ${reviews}">
             <div class="card">
-                <div class="text-center mt-3 mb-1">
-                    <h4 th:text="${review.shopTitle()}">Ramen Shop Title</h4>
-                    <h6 th:text="${review.dishName()}">Dish Name</h6>
+                <img th:src="${review.picturePath()}" class="card-img-top mb-3" alt="Card Image">
+
+                <div class="card-header text-center">
+
+                    <h3 th:text="${review.shopTitle()}">Ramen Shop Title</h3>
+                    <h5 class="mb-4" th:text="${review.dishName()}">Dish Name</h5>
+
+                    <span class="mb-3" th:each="scoreItem : ${#numbers.sequence(1, 5)}">
+                        <img class="score-ico" th:if="${review.totalScore() >= scoreItem}"
+                             src="src/assets/img/ramen_outlined.png"
+                             alt="ramen"/>
+                        <img class="score-ico" th:unless="${review.totalScore() >= scoreItem}"
+                             src="src/assets/img/ramen_no_fill.png"
+                             alt="ramen"/>
+                    </span>
+
                 </div>
 
 
-                <img th:src="${review.picturePath()}" class="card-img mx-auto d-block rounded-0" alt="Card Image">
                 <div class="card-body text-center">
-                    <span th:each="scoreItem : ${#numbers.sequence(1, 5)}">
-                            <img th:if="${review.totalScore() >= scoreItem}" src="src/assets/img/ramen_outlined.png" class="score-ico" alt="ramen"/>
-                            <img th:unless="${review.totalScore() >= scoreItem}" class="score-ico" src="src/assets/img/ramen_no_fill.png" alt="ramen"/>
-                    </span>
-
-
-                    <div class="my-4"></div>
-
                     <p class="card-text" th:text=|Broth:&nbsp;${review.scoreBroth()}/${review.MAX_SCORE_BROTH}|></p>
                     <p class="card-text" th:text=|Noodles:&nbsp;${review.scoreNoodles()}/${review.MAX_SCORE_NOODLES}|></p>
                     <p class="card-text" th:text=|Toppings:&nbsp;${review.scoreToppings()}/${review.MAX_SCORE_TOPPINGS}|></p>
                     <p class="card-text" th:text=|Atmosphere:&nbsp;${review.scoreAtmosphere()}/${review.MAX_SCORE_ATMOSPHERE}|></p>
-                    <hr>
-
-                    <a th:each="link : ${review.links()}" th:href="${link.url()}" th:text="${link.displayName()}"
-                       class="card-link">Card link</a>
                 </div>
+
+                <div class="card-footer text-center">
+                    <a class="card-link" th:each="link : ${review.links()}" th:href="${link.url()}"
+                       th:text="${link.displayName()}">Card link</a>
+                </div>
+
+
             </div>
         </div>
     </div>
