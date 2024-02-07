@@ -1,5 +1,3 @@
-
-
 body::before {
     content: "";
     position: fixed; /* Use fixed position instead of absolute */
@@ -26,8 +24,7 @@ body::after {
 }
 
 .card {
-    width: 300px;
-    background-color: #F5F5F5
+    min-width: 250px;
 }
 
 .card-img {
