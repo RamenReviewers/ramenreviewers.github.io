@@ -29,6 +29,3 @@ target/
 
 ### Mac OS ###
 .DS_Store
-
-# generated files
-index.html
