@@ -42,7 +42,7 @@ public class ReviewYmlParser {
         var scoreToppings = getIntScoreValue(propertyMap, "scoreToppings", Review.MIN_SCORE, Review.MAX_SCORE_TOPPINGS);
         var scoreAtmosphere = getIntScoreValue(propertyMap, "scoreAtmosphere", Review.MIN_SCORE, Review.MAX_SCORE_ATMOSPHERE);
 
-        var totalScore = calculateTotalScore(scoreBroth, scoreNoodles, scoreToppings, scoreAtmosphere);
+        var totalScore = Math.round(calculateTotalScore(scoreBroth, scoreNoodles, scoreToppings, scoreAtmosphere));
 
         var links = getCardLinks(propertyMap);
 
