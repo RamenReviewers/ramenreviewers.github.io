@@ -45,10 +45,11 @@
                     <h5 class="mb-4" th:text="${review.getDish()}">Dish Name</h5>
 
                     <span class="mb-3" th:each="scoreItem : ${#numbers.sequence(1, 5)}">
-                        <img class="score-ico" th:if="${review.getTotalScore() >= scoreItem}"
-                             src="src/assets/img/ramen_outlined.png"
+                        <img class="score-ico ramen-filling"
+                             th:style="'clip-path: polygon(0% 0%, 0% 100%, ' + ${(review.getTotalScore() - scoreItem + 1) * 100} + '% 100%, ' + ${(review.getTotalScore() - scoreItem + 1) * 100} + '% 0%);'"
+                             src="src/assets/img/ramen.png"
                              alt="ramen"/>
-                        <img class="score-ico" th:unless="${review.getTotalScore() >= scoreItem}"
+                        <img class="score-ico ramen-outline"
                              src="src/assets/img/ramen_no_fill.png"
                              alt="ramen"/>
                     </span>

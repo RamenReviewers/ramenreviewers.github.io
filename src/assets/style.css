@@ -55,6 +55,16 @@ body::after {
     height: 35px;
 }
 
+.ramen-filling {
+    position: absolute;
+    z-index: 1;
+}
+
+.ramen-outline {
+    position: relative;
+    z-index: 2;
+}
+
 footer a, footer p {
     color: white;
     font-size: 9pt;
