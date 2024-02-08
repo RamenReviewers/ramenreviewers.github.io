@@ -26,7 +26,7 @@ public class ReviewYmlParser {
             loaderOptions.setTagInspector(tagInspector);
             var yaml = new Yaml(new Constructor(Review.class, loaderOptions));
             var review = yaml.loadAs(reader, Review.class);
-            review.setPicturePath(reviewDirectory + "\\" + directory + "\\thumbnail.png");
+            review.setPicturePath(reviewDirectory + File.separator + directory + File.separator + "thumbnail.png");
             return review;
 
         } catch (Exception e) {
