@@ -29,7 +29,7 @@ public class Review implements Serializable {
     private float scoreToppings = -1;
     private float scoreAtmosphere = -1;
     private @Setter List<LinkedHashMap<Object, Object>> links;
-    private @Setter String picturePath = MISSING_PROPERTY_DEFAULT_STRING;
+    private @Setter List<String> picturePath = new ArrayList<>();
 
 
     public void setScoreBroth(float scoreBroth) {
