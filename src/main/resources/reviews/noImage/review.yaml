@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "NAME"
+dish: "NAME"
+reviewers: []
+scoreBroth: 0
+scoreNoodles: 0
+scoreToppings: 0
+scoreAtmosphere: 0
+location: "NAME"
+links:
+  -
+    displayName: "NAME"
+    url: "https://"
+  -
+    displayName: "NAME"
+    url: "https://"

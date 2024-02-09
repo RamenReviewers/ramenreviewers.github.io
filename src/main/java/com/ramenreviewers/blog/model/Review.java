@@ -19,6 +19,7 @@ public class Review implements Serializable {
     public static final int MAX_SCORE_ATMOSPHERE = 3;
     public static final int MIN_SCORE = -1;
 
+    private @Setter String id = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter String shop = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter String dish = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter List<String> reviewers;
@@ -29,7 +30,6 @@ public class Review implements Serializable {
     private float scoreAtmosphere = -1;
     private @Setter List<String> picturePaths = new ArrayList<>();
     private @Setter List<Link> links;
-
 
     @Data
     @EqualsAndHashCode

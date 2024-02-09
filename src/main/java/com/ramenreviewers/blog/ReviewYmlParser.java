@@ -20,6 +20,7 @@ public class ReviewYmlParser {
 
     private final static String REVIEW_FILE_NAME = "review.yaml";
     private final static String RESOURCE_PATH = "src/main/resources/reviews";
+    private final static String PLACEHOLDER_IMAGE = "https://via.assets.so/img.jpg?w=400&h=200&tc=grey&bg=white&t=No%20Review%20Image";
 
     public static Review parseReview(Path reviewDirectory) {
         try {
@@ -27,13 +28,15 @@ public class ReviewYmlParser {
             File reviewYamlFile = Paths.get(reviewDirectory.toString(), REVIEW_FILE_NAME).toFile();
             FileReader reader = new FileReader(reviewYamlFile);
 
-            // create a review object by parsing the yaml
+            // init the yaml loader
             var loaderOptions = new LoaderOptions();
             TagInspector tagInspector = tag -> tag.getClassName().equals(Review.class.getName());
             loaderOptions.setTagInspector(tagInspector);
 
+            // create a review object by parsing the yaml
             var yaml = new Yaml(new Constructor(Review.class, loaderOptions));
             var review = yaml.loadAs(reader, Review.class);
+            review.setId(reviewDirectory.getFileName().toString());
 
             // get all the images in the same directory
             var images = loadAllImagesInDirectory(reviewDirectory);
@@ -48,22 +51,24 @@ public class ReviewYmlParser {
 
     private static List<String> loadAllImagesInDirectory(Path directory) {
         // set up a file filter to filter for files with the specified extensions
-        final String[] Extensions = {".png", ".jpg"};
-        final FilenameFilter filter = new FilenameFilter() {
-            @Override
-            public boolean accept(File dir, String name) {
-                for (final String ext : Extensions) {
-                    if(name.endsWith(ext)) return true;
-                }
-                return false;
+        final String[] Extensions = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"};
+        final FilenameFilter filter = (dir, name) -> {
+            for (final String ext : Extensions) {
+                if(name.endsWith(ext)) return true;
             }
+            return false;
         };
 
         // return all the files as list
         var dir = directory.toFile();
         if(!dir.isDirectory()) return null;
-        return Arrays.stream(Objects.requireNonNull(dir.list(filter)))
+        var list =  Arrays.stream(Objects.requireNonNull(dir.list(filter)))
                 .map(file -> Paths.get(RESOURCE_PATH, directory.getFileName().toString(), file).toString())
                 .toList();
+
+        // return default image if list is empty or return our images
+        return list.isEmpty()
+                ? List.of(PLACEHOLDER_IMAGE)
+                : list;
     }
 }
