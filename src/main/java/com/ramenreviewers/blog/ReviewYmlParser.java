@@ -16,6 +16,7 @@ public class ReviewYmlParser {
 
     private final static String REVIEW_FILE_NAME = "review.yaml";
     private final static String THUMBNAIL_FILE_NAME = "thumbnail.png";
+    private final static String RESOURCE_PATH = "src/main/resources/reviews";
 
     public static Review parseReview(Path reviewDirectory) {
         try {
@@ -29,7 +30,8 @@ public class ReviewYmlParser {
 
             var yaml = new Yaml(new Constructor(Review.class, loaderOptions));
             var review = yaml.loadAs(reader, Review.class);
-            review.setPicturePath(Paths.get(reviewDirectory.toString(), THUMBNAIL_FILE_NAME).toString());
+
+            review.setPicturePath(Paths.get(RESOURCE_PATH, reviewDirectory.getFileName().toString(), THUMBNAIL_FILE_NAME).toString());
             return review;
 
         } catch (IOException e) {
