@@ -4,7 +4,6 @@ import com.ramenreviewers.blog.model.Review;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
@@ -19,12 +18,12 @@ class ReviewYmlParserTest {
     void parseValidReview() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("validReview")).toURI());
         Review result = ReviewYmlParser.parseReview(reviewDirectory);
-        Review expectedReview = getValidReview(reviewDirectory);
+        Review expectedReview = getValidReview();
 
         assertEquals(expectedReview, result);
     }
 
-    private static Review getValidReview(Path reviewDirectory) {
+    private static Review getValidReview() {
         Review expectedReview = new Review();
         expectedReview.setShop("TestShop");
         expectedReview.setDish("TestDish");
