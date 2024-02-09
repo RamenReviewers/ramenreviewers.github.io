@@ -26,13 +26,11 @@ public class BlogApplication {
         ).listFiles();
 
         if (reviewDirectories == null) {
-            System.err.println("no review directories");
-            System.exit(1);
+            throw new RuntimeException("no review directories");
         }
 
         reviews = Arrays.stream(reviewDirectories)
                 .map(directory -> parseReview(Paths.get(String.valueOf(directory))))
-                .filter(Objects::nonNull)
                 .toList();
 
         // generate the html content
@@ -41,8 +39,7 @@ public class BlogApplication {
         try (FileWriter fileWriter = new FileWriter("index.html")) {
             fileWriter.write(processed);
         } catch (IOException e) {
-            System.err.println("Error writing the html site: " + e);
-            System.exit(1);
+            throw new RuntimeException("Error writing the html site: ", e);
         }
     }
 

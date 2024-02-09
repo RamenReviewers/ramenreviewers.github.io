@@ -33,8 +33,7 @@ public class ReviewYmlParser {
             return review;
 
         } catch (IOException e) {
-            System.out.println("Error parsing the review in directory " + reviewDirectory + ": " + e);
-            return null;
+            throw new RuntimeException("Error parsing the review in directory " + reviewDirectory, e);
         }
     }
 }

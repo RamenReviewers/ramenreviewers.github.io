@@ -8,4 +8,9 @@ scoreToppings: 0
 scoreAtmosphere: 0
 location: "NAME"
 links:
-  - Link: "ADSRESS"
+  -
+    displayName: "NAME"
+    url: "https://"
+  -
+    displayName: "NAME"
+    url: "https://"
