@@ -36,7 +36,14 @@
         <div class="col-lg-3 col-md-6" th:each="review : ${reviews}">
             <div class="card border-0 text-dark">
 
-                <img th:src="${review.getPicturePath()}" class="card-img-top border-0 shadow" alt="Card Image">
+                <div id="carouselExampleSlidesOnly" class="carousel slide card-img-top border-0 shadow" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div th:each="img, iterStat : ${review.getPicturePath()}" class="carousel-item active">
+                            <img th:class="'d-block w-100 ' + ${iterStat.index == 0 ? 'active' : ''}"
+                                 th:src="${img}" alt="Ramen">
+                        </div>
+                    </div>
+                </div>
 
 
                 <div class="card-header text-center">
