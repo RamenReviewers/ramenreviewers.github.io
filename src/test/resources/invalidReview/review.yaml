@@ -1,0 +1,13 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "TestShop"
+dish: "TestDish"
+reviewers: ["Test1", "Test2"]
+scoreBroth: 5
+scoreYourMama: 99
+scoreToppings: 4
+scoreAtmosphere: 2
+location: "TestLocation"
+links:
+  -
+    displayName: "test"
+    url: "https://test.com/"
