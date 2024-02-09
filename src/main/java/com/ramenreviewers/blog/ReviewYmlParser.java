@@ -1,6 +1,5 @@
 package com.ramenreviewers.blog;
 
-import com.ramenreviewers.blog.model.Link;
 import com.ramenreviewers.blog.model.Review;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
@@ -9,9 +8,6 @@ import org.yaml.snakeyaml.inspector.TagInspector;
 
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class ReviewYmlParser {
 
