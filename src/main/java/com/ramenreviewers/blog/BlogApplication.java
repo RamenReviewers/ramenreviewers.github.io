@@ -5,6 +5,7 @@ import com.ramenreviewers.blog.model.Review;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.*;
 
 import static com.ramenreviewers.blog.ReviewYmlParser.parseReview;
@@ -30,7 +31,7 @@ public class BlogApplication {
         }
 
         reviews = Arrays.stream(reviewDirectories)
-                .map(directory -> parseReview(reviewsDirectory, directory))
+                .map(directory -> parseReview(Paths.get(REVIEWS_DIRECTORY, directory)))
                 .filter(Objects::nonNull)
                 .toList();
 
