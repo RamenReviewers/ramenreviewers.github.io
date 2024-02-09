@@ -8,6 +8,7 @@ import org.yaml.snakeyaml.inspector.TagInspector;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -31,7 +32,7 @@ public class ReviewYmlParser {
             review.setPicturePath(Paths.get(reviewDirectory.toString(), THUMBNAIL_FILE_NAME).toString());
             return review;
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Error parsing the review in directory " + reviewDirectory + ": " + e);
             return null;
         }
