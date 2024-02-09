@@ -3,6 +3,7 @@ package com.ramenreviewers.blog.model;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -26,7 +27,7 @@ public class Review implements Serializable {
     private float scoreNoodles = -1;
     private float scoreToppings = -1;
     private float scoreAtmosphere = -1;
-    private @Setter List<String> picturePath = new ArrayList<>();
+    private @Setter List<String> picturePaths = new ArrayList<>();
     private @Setter List<Link> links;
 
 

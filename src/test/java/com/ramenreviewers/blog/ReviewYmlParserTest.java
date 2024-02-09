@@ -33,7 +33,7 @@ class ReviewYmlParserTest {
         expectedReview.setScoreToppings(4f);
         expectedReview.setScoreAtmosphere(2f);
         expectedReview.setLocation("TestLocation");
-        expectedReview.setPicturePath(Paths.get("src", "main", "resources", "reviews", "validReview","thumbnail.png").toString());
+        expectedReview.setPicturePaths(Paths.get("src", "main", "resources", "reviews", "validReview","thumbnail.png").toString());
         var link = new Review.Link();
         link.setDisplayName("test");
         link.setUrl("https://test.com/");

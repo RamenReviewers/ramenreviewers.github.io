@@ -8,9 +8,13 @@ import org.yaml.snakeyaml.inspector.TagInspector;
 
 import java.io.File;
 import java.io.FileReader;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class ReviewYmlParser {
 
@@ -33,8 +37,8 @@ public class ReviewYmlParser {
             var review = yaml.loadAs(reader, Review.class);
 
             // get all the images in the same directory
-            var images = loadAllImagesInDirectory(parsedDirectoryPath);
-            review.setPicturePath(images);
+            var images = loadAllImagesInDirectory(reviewDirectory);
+            review.setPicturePaths(images);
 
             return review;
 
@@ -43,7 +47,7 @@ public class ReviewYmlParser {
         }
     }
 
-    private static List<String> loadAllImagesInDirectory(String directory) {
+    private static List<String> loadAllImagesInDirectory(Path directory) {
         // set up a file filter to filter for files with the specified extensions
         final String[] Extensions = {".png", ".jpg"};
         final FilenameFilter filter = new FilenameFilter() {
@@ -57,9 +61,10 @@ public class ReviewYmlParser {
         };
 
         // return all the files as list
-        var dir = new File(directory);
+        var dir = directory.toFile();
         if(!dir.isDirectory()) return null;
         return Arrays.stream(Objects.requireNonNull(dir.list(filter)))
-                .map(file -> directory + file).toList();
+                .map(file -> Paths.get(RESOURCE_PATH, directory.getFileName().toString(), file).toString())
+                .toList();
     }
 }
