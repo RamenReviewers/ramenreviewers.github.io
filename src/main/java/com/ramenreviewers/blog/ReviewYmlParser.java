@@ -19,7 +19,6 @@ import java.util.Objects;
 public class ReviewYmlParser {
 
     private final static String REVIEW_FILE_NAME = "review.yaml";
-    private final static String THUMBNAIL_FILE_NAME = "thumbnail.png";
     private final static String RESOURCE_PATH = "src/main/resources/reviews";
 
     public static Review parseReview(Path reviewDirectory) {
