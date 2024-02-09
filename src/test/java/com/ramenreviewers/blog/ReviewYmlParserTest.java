@@ -25,6 +25,7 @@ class ReviewYmlParserTest {
 
     private static Review getValidReview() {
         Review expectedReview = new Review();
+        expectedReview.setId("validReview");
         expectedReview.setShop("TestShop");
         expectedReview.setDish("TestDish");
         expectedReview.setReviewers(List.of("Test1", "Test2"));
@@ -58,6 +59,35 @@ class ReviewYmlParserTest {
     void parseReviewWithMissingFile() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("missingReview")).toURI());
         assertThrows(RuntimeException.class, ()-> ReviewYmlParser.parseReview(reviewDirectory));
+    }
+
+    @Test
+    @SneakyThrows
+    void parseReviewWithoutImage() {
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("validReviewNoImage")).toURI());
+        Review result = ReviewYmlParser.parseReview(reviewDirectory);
+        Review expectedReview = getNoImageReview();
+
+        assertEquals(expectedReview, result);
+    }
+
+    private static Review getNoImageReview() {
+        Review expectedReview = new Review();
+        expectedReview.setId("validReviewNoImage");
+        expectedReview.setShop("TestShop");
+        expectedReview.setDish("TestDish");
+        expectedReview.setReviewers(List.of("Test1", "Test2"));
+        expectedReview.setScoreBroth(5f);
+        expectedReview.setScoreNoodles(3.5f);
+        expectedReview.setScoreToppings(4f);
+        expectedReview.setScoreAtmosphere(2f);
+        expectedReview.setLocation("TestLocation");
+        expectedReview.setPicturePaths(List.of("https://via.assets.so/img.jpg?w=400&h=200&tc=grey&bg=white&t=No%20Review%20Image"));
+        var link = new Review.Link();
+        link.setDisplayName("test");
+        link.setUrl("https://test.com/");
+        expectedReview.setLinks(List.of(link));
+        return expectedReview;
     }
 
 }
