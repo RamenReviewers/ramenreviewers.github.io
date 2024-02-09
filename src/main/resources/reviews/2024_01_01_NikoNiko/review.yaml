@@ -8,4 +8,6 @@ scoreToppings: 4
 scoreAtmosphere: 2
 location: "Berlin"
 links:
-  - nikoniko-ramen.com: "https://nikoniko-ramen.com/"
+  -
+    displayName: "nikoniko-ramen.com"
+    url: "https://nikoniko-ramen.com/"

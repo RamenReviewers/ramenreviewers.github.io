@@ -25,15 +25,15 @@
 
 <body>
 
-<div class="container pt-5">
+<div class="container-fluid pt-5 px-5">
 
-    <h1 class="text-white display-1 font-weight-bold">
+    <h1 class="text-white display-1 font-weight-bold mx-1">
         Ramen Reviewers
     </h1>
-    <h3 class="text-white mb-5"><small>Rating Vegan Ramen</small></h3>
+    <h3 class="text-white mb-5 mx-1"><small>Rating Vegan Ramen</small></h3>
 
-    <div class="row mb-6">
-        <div class="col-lg-3 col-md-6" th:each="review : ${reviews}">
+    <div class="row justify-content-start gy-4 gx-4 mx-1">
+        <div class="col-auto" th:each="review : ${reviews}">
             <div class="card border-0 text-dark">
 
                 <div id="carouselExampleSlidesOnly" class="carousel slide card-img-top border-0 shadow" data-ride="carousel">
@@ -45,9 +45,9 @@
                     </div>
                 </div>
 
-
+                <img th:src="${review.getPicturePath()}" class="card-img-top border-0 shadow" alt="Card Image">
+                
                 <div class="card-header text-center">
-
                     <h3 th:text="${review.getShop()}">Ramen Shop Title</h3>
                     <h5 class="mb-4" th:text="${review.getDish()}">Dish Name</h5>
 
@@ -60,7 +60,6 @@
                              src="src/assets/img/ramen_no_fill.png"
                              alt="ramen"/>
                     </span>
-
                 </div>
 
 
@@ -120,9 +119,9 @@
                           th:text=|&nbsp;${reviewer}|>
                     </span>
                     <br>
-                    <p class="card-link" th:each="link : ${review.getLinksParsed()}">
+                    <p class="card-link" th:each="link : ${review.getLinks()}">
                         <i class="bi bi-link-45deg"></i>
-                        <a th:href="${link.url()}" th:text="${link.displayName()}">Card link</a>
+                        <a th:href="${link.getUrl()}" th:text="${link.getDisplayName()}">Card link</a>
                     </p>
 
 
