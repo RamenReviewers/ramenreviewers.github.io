@@ -35,7 +35,26 @@
     <div class="row justify-content-start gy-4 gx-4 mx-1">
         <div class="col-auto" th:each="review : ${reviews}">
             <div class="card border-0 text-dark">
-                <img th:src="${review.getPicturePath()}" class="card-img-top border-0 shadow" alt="Card Image">
+
+                <div th:if="${review.getPicturePaths().size() > 1}" th:id="'carousel' + ${review.getId()}" class="carousel slide card-img-top border-0 shadow" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div th:each="img, iterStat : ${review.getPicturePaths()}"
+                             th:class="'carousel-item ' + ${iterStat.index == 0 ? 'active' : ''}">
+                            <img class="d-block w-100" th:src="${img}" alt="Ramen">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" th:data-bs-target="'#carousel' + ${review.getId()}" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" th:data-bs-target="'#carousel' + ${review.getId()}" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <img th:unless="${review.getPicturePaths().size() > 1}" th:src="${review.getPicturePaths().get(0)}">
+                
                 <div class="card-header text-center">
                     <h3 th:text="${review.getShop()}">Ramen Shop Title</h3>
                     <h5 class="mb-4" th:text="${review.getDish()}">Dish Name</h5>
@@ -112,11 +131,7 @@
                         <i class="bi bi-link-45deg"></i>
                         <a th:href="${link.getUrl()}" th:text="${link.getDisplayName()}">Card link</a>
                     </p>
-
-
                 </div>
-
-
             </div>
         </div>
     </div>

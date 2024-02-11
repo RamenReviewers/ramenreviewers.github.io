@@ -3,6 +3,7 @@ package com.ramenreviewers.blog.model;
 import lombok.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -18,6 +19,7 @@ public class Review implements Serializable {
     public static final int MAX_SCORE_ATMOSPHERE = 3;
     public static final int MIN_SCORE = -1;
 
+    private @Setter String id = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter String shop = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter String dish = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter List<String> reviewers;
@@ -26,9 +28,8 @@ public class Review implements Serializable {
     private float scoreNoodles = -1;
     private float scoreToppings = -1;
     private float scoreAtmosphere = -1;
+    private @Setter List<String> picturePaths = new ArrayList<>();
     private @Setter List<Link> links;
-    private @Setter String picturePath = MISSING_PROPERTY_DEFAULT_STRING;
-
 
     @Data
     @EqualsAndHashCode
