@@ -1,6 +1,7 @@
 package com.ramenreviewers.blog;
 
 import com.ramenreviewers.blog.model.Review;
+import java.util.Optional;
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
@@ -14,7 +15,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 public class ReviewYmlParser {
 
@@ -51,24 +51,15 @@ public class ReviewYmlParser {
 
     private static List<String> loadAllImagesInDirectory(Path directory) {
         // set up a file filter to filter for files with the specified extensions
-        final String[] Extensions = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"};
-        final FilenameFilter filter = (dir, name) -> {
-            for (final String ext : Extensions) {
-                if(name.endsWith(ext)) return true;
-            }
-            return false;
-        };
+        final String[] extensions = {".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"};
+        final FilenameFilter filter = (dir, name) ->
+            Arrays.stream(extensions).anyMatch(name::endsWith);
 
-        // return all the files as list
-        var dir = directory.toFile();
-        if(!dir.isDirectory()) return null;
-        var list =  Arrays.stream(Objects.requireNonNull(dir.list(filter)))
-                .map(file -> Paths.get(RESOURCE_PATH, directory.getFileName().toString(), file).toString())
-                .toList();
-
-        // return default image if list is empty or return our images
-        return list.isEmpty()
-                ? List.of(PLACEHOLDER_IMAGE)
-                : list;
+        return Optional.ofNullable(directory.toFile().listFiles(filter))
+            .map(files -> Arrays.stream(files)
+                .map(file -> Paths.get(RESOURCE_PATH, directory.getFileName().toString(),
+                    file.getName()).toString())
+                .toList())
+            .orElse(List.of(PLACEHOLDER_IMAGE));
     }
 }
