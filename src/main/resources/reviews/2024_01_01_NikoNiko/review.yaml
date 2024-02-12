@@ -2,6 +2,7 @@
 shop: "Niko Niko Ramen"
 dish: "Tonkutsu"
 reviewers: ["Ice", "DerKekZ", "CrunchNCrisp"]
+price: 14.50
 scoreBroth: 5
 scoreNoodles: 3.5
 scoreToppings: 4

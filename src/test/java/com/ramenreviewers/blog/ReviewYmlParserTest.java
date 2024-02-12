@@ -29,6 +29,7 @@ class ReviewYmlParserTest {
         expectedReview.setShop("TestShop");
         expectedReview.setDish("TestDish");
         expectedReview.setReviewers(List.of("Test1", "Test2"));
+        expectedReview.setPrice(15f);
         expectedReview.setScoreBroth(5f);
         expectedReview.setScoreNoodles(3.5f);
         expectedReview.setScoreToppings(4f);
@@ -77,12 +78,12 @@ class ReviewYmlParserTest {
         expectedReview.setShop("TestShop");
         expectedReview.setDish("TestDish");
         expectedReview.setReviewers(List.of("Test1", "Test2"));
+        expectedReview.setPrice(15f);
         expectedReview.setScoreBroth(5f);
         expectedReview.setScoreNoodles(3.5f);
         expectedReview.setScoreToppings(4f);
         expectedReview.setScoreAtmosphere(2f);
         expectedReview.setLocation("TestLocation");
-        expectedReview.setPicturePaths(List.of("https://via.assets.so/img.jpg?w=400&h=200&tc=grey&bg=white&t=No%20Review%20Image"));
         var link = new Review.Link();
         link.setDisplayName("test");
         link.setUrl("https://test.com/");

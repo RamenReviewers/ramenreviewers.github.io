@@ -2,6 +2,7 @@
 shop: "NAME"
 dish: "NAME"
 reviewers: []
+price: 0
 scoreBroth: 0
 scoreNoodles: 0
 scoreToppings: 0

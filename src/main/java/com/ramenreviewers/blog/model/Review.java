@@ -30,6 +30,7 @@ public class Review implements Serializable {
     private float scoreAtmosphere = -1;
     private @Setter List<String> picturePaths = new ArrayList<>();
     private @Setter List<Link> links;
+    private @Setter float price = -1;
 
     @Data
     @EqualsAndHashCode

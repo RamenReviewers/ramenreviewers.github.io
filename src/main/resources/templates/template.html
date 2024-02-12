@@ -58,6 +58,7 @@
                 <div class="card-header text-center">
                     <h3 th:text="${review.getShop()}">Ramen Shop Title</h3>
                     <h5 class="mb-4" th:text="${review.getDish()}">Dish Name</h5>
+                    <h6 class="mb-4" th:text="${#numbers.formatCurrency(review.getPrice())}">Price</h6>
 
                     <span class="mb-3" th:each="scoreItem : ${#numbers.sequence(1, 5)}">
                         <img class="score-ico ramen-filling"
