@@ -8,6 +8,7 @@ scoreNoodles: 0
 scoreToppings: 0
 scoreAtmosphere: 0
 location: "NAME"
+tags: ["TAG1", "TAG2"]
 links:
   -
     displayName: "NAME"
