@@ -18,6 +18,7 @@ public class Review implements Serializable {
     public static final int MAX_SCORE_TOPPINGS = 5;
     public static final int MAX_SCORE_ATMOSPHERE = 3;
     public static final int MIN_SCORE = -1;
+    public static final int MAX_DESCRIPTION_LENGTH = 2048;
 
     private @Setter String id = MISSING_PROPERTY_DEFAULT_STRING;
     private @Setter String shop = MISSING_PROPERTY_DEFAULT_STRING;
@@ -32,7 +33,7 @@ public class Review implements Serializable {
     private @Setter List<Link> links;
     private @Setter float price = -1;
     private @Setter List<String> tags;
-    private @Setter String description;
+    private String description;
 
     @Data
     @EqualsAndHashCode
@@ -55,6 +56,10 @@ public class Review implements Serializable {
 
     public void setScoreAtmosphere(float scoreAtmosphere) {
         this.scoreAtmosphere = Math.clamp(scoreAtmosphere, MIN_SCORE, MAX_SCORE_BROTH);
+    }
+
+    public void setDescription(String description) {
+        this.description = description.length() > 2048 ? "" : description;
     }
 
     public float getTotalScore() {
