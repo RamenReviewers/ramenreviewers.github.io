@@ -9,6 +9,7 @@ scoreToppings: 4
 scoreAtmosphere: 2
 location: "Berlin"
 tags: []
+description: ""
 links:
   -
     displayName: "nikoniko-ramen.com"

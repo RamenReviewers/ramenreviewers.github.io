@@ -9,6 +9,7 @@ scoreToppings: 4
 scoreAtmosphere: 2
 location: "TestLocation"
 tags: []
+description: ""
 links:
   -
     displayName: "test"

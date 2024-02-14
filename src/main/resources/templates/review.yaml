@@ -9,6 +9,7 @@ scoreToppings: 0
 scoreAtmosphere: 0
 location: "NAME"
 tags: ["TAG1", "TAG2"]
+description: "YOUR TEXT HERE (or empty string if you want)"
 links:
   -
     displayName: "NAME"

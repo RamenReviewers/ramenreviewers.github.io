@@ -32,6 +32,7 @@ public class Review implements Serializable {
     private @Setter List<Link> links;
     private @Setter float price = -1;
     private @Setter List<String> tags;
+    private @Setter String description;
 
     @Data
     @EqualsAndHashCode

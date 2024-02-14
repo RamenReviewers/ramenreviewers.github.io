@@ -36,6 +36,7 @@ class ReviewYmlParserTest {
         expectedReview.setScoreAtmosphere(2f);
         expectedReview.setLocation("TestLocation");
         expectedReview.setTags(List.of("TEST_TAG", "ANOTHER_TAG"));
+        expectedReview.setDescription("TEST DESCRIPTION");
         expectedReview.setPicturePaths(
                 List.of(Paths.get("src", "main", "resources", "reviews", "validReview","thumbnail.jpg").toString(),
                         Paths.get("src", "main", "resources", "reviews", "validReview","thumbnail.png").toString()
@@ -86,6 +87,7 @@ class ReviewYmlParserTest {
         expectedReview.setScoreAtmosphere(2f);
         expectedReview.setLocation("TestLocation");
         expectedReview.setTags(List.of());
+        expectedReview.setDescription("");
         var link = new Review.Link();
         link.setDisplayName("test");
         link.setUrl("https://test.com/");
