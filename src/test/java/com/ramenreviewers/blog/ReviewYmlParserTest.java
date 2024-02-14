@@ -95,4 +95,11 @@ class ReviewYmlParserTest {
         return expectedReview;
     }
 
+    @Test
+    @SneakyThrows
+    void testTooLongDescription() {
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("longDescriptionReview")).toURI());
+        assertThrows(Exception.class, () -> ReviewYmlParser.parseReview(reviewDirectory));
+    }
+
 }

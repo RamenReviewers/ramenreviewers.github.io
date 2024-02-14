@@ -59,7 +59,9 @@ public class Review implements Serializable {
     }
 
     public void setDescription(String description) {
-        this.description = description.length() > 2048 ? "" : description;
+        if(description.length() > MAX_DESCRIPTION_LENGTH) throw new RuntimeException(
+                "Description length exceeds the character limit");
+        this.description = description;
     }
 
     public float getTotalScore() {
