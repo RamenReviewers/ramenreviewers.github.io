@@ -18,6 +18,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn clean test -ff -B --file pom.xml
+        run: mvn clean install -ff -B --file pom.xml
         continue-on-error: false
 
