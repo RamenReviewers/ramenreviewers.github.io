@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  brun-automated-tests:
+  run-automated-tests:
     runs-on: ubuntu-latest
 
     steps:
