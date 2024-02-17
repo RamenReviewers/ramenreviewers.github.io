@@ -18,10 +18,4 @@ jobs:
 
       - name: Run Maven Clean Install
         run: mvn clean install
-
-      - name: Check Test Results
-        run: |
-          if [ $? -ne 0 ]; then
-            echo "Tests failed. Branch cannot be merged."
-            exit 1
-          fi
+        continue-on-error: false
