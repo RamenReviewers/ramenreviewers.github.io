@@ -15,7 +15,7 @@ class ReviewYmlParserTest {
     @Test
     @SneakyThrows
     void shouldParseValidReview() {
-        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("validReview")).toURI());
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("validReview")).toURI());
         Review result = ReviewYmlParser.parseReview(reviewDirectory);
         Review expectedReview = TestUtil.getValidReview();
 
@@ -25,7 +25,7 @@ class ReviewYmlParserTest {
     @Test
     @SneakyThrows
     void parsingReviewWithInvalidYAMLShouldThrowException() {
-        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("invalidReview")).toURI());
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("invalidReview")).toURI());
         assertThrows(Exception.class, () -> ReviewYmlParser.parseReview(reviewDirectory));
 
     }
@@ -33,14 +33,14 @@ class ReviewYmlParserTest {
     @Test
     @SneakyThrows
     void parsingReviewWithMissingFileShouldThrowException() {
-        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("missingReview")).toURI());
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("missingReview")).toURI());
         assertThrows(RuntimeException.class, ()-> ReviewYmlParser.parseReview(reviewDirectory));
     }
 
     @Test
     @SneakyThrows
     void shouldParseValidReviewWithoutImage() {
-        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("validReviewNoImage")).toURI());
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("validReviewNoImage")).toURI());
         Review result = ReviewYmlParser.parseReview(reviewDirectory);
         Review expectedReview = TestUtil.getValidNoImageReview();
 
@@ -52,7 +52,7 @@ class ReviewYmlParserTest {
     @Test
     @SneakyThrows
     void parsingTooLongDescriptionShouldThrowException() {
-        Path reviewDirectory = Paths.get(Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource("longDescriptionReview")).toURI());
+        Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("longDescriptionReview")).toURI());
         assertThrows(Exception.class, () -> ReviewYmlParser.parseReview(reviewDirectory));
     }
 
