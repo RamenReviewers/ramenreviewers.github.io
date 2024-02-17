@@ -10,7 +10,7 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ReviewYmlParserTest {
+class TestReviewYmlParser {
 
     @Test
     @SneakyThrows

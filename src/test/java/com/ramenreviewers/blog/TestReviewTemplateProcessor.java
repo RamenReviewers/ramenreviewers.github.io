@@ -4,19 +4,18 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-class ReviewTemplateProcessorTest {
+class TestReviewTemplateProcessor {
 
     @Test
-    void shouldProcessListOfValidReviews(){
+    void shouldProcessListOfValidReviews() {
         var reviews = List.of(TestUtil.getValidReview());
         ReviewTemplateProcessor.processTemplate(reviews);
     }
 
     @Test
-    void willFail(){
+    void willFail() {
         fail();
     }
 }
