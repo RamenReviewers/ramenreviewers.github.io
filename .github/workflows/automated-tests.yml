@@ -4,9 +4,6 @@ on:
   pull_request:
     branches:
       - '*'
-  push:
-    branches:
-      - main
 
 jobs:
   build-and-deploy:
@@ -24,7 +21,7 @@ jobs:
 
       - name: Build with Maven and Run Tests
         run:  mvn clean install
-        working-directory: $GITHUB_WORKSPACE
+        working-directory: /
 
       - name: Check Test Results
         run: |
@@ -32,4 +29,4 @@ jobs:
             echo "Tests failed. Branch cannot be merged."
             exit 1
           fi
-        working-directory: $GITHUB_WORKSPACE
+        working-directory: /
