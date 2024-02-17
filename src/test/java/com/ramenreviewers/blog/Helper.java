@@ -5,7 +5,7 @@ import com.ramenreviewers.blog.model.Review;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class TestUtil {
+public class Helper {
 
     public static Review getValidReview() {
         Review expectedReview = new Review();

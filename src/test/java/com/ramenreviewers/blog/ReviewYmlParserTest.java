@@ -17,7 +17,7 @@ class ReviewYmlParserTest {
     void shouldParseValidReview() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("validReview")).toURI());
         Review result = ReviewYmlParser.parseReview(reviewDirectory);
-        Review expectedReview = TestUtil.getValidReview();
+        Review expectedReview = Helper.getValidReview();
 
         assertEquals(expectedReview, result);
     }
@@ -42,7 +42,7 @@ class ReviewYmlParserTest {
     void shouldParseValidReviewWithoutImage() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource("validReviewNoImage")).toURI());
         Review result = ReviewYmlParser.parseReview(reviewDirectory);
-        Review expectedReview = TestUtil.getValidNoImageReview();
+        Review expectedReview = Helper.getValidNoImageReview();
 
         assertEquals(expectedReview, result);
     }
