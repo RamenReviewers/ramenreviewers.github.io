@@ -2,11 +2,14 @@
 shop: "TestShop"
 dish: "TestDish"
 reviewers: ["Test1", "Test2"]
+price: 15
 scoreBroth: 5
 scoreNoodles: 3.5
 scoreToppings: 4
 scoreAtmosphere: 2
 location: "TestLocation"
+tags: []
+description: ""
 links:
   -
     displayName: "test"

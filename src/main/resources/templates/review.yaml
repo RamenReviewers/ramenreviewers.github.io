@@ -2,11 +2,14 @@
 shop: "NAME"
 dish: "NAME"
 reviewers: []
+price: 0
 scoreBroth: 0
 scoreNoodles: 0
 scoreToppings: 0
 scoreAtmosphere: 0
 location: "NAME"
+tags: ["TAG1", "TAG2"]
+description: "YOUR TEXT HERE (or empty string if you want)"
 links:
   -
     displayName: "NAME"
