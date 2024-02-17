@@ -18,6 +18,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn test -B --file pom.xml --verbose
+        run: mvn test -ff -B --file pom.xml -X
         continue-on-error: false
 
