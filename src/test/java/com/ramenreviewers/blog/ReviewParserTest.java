@@ -11,11 +11,11 @@ import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ReviewParserTest {
+public class ReviewParserTest {
 
     @Test
     @SneakyThrows
-    void parseValidReview() {
+    public void parseValidReview() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(
             ReviewPageGenerator.class.getClassLoader().getResource("validReview")).toURI());
         assertDoesNotThrow(() -> ReviewParser.parseReview(reviewDirectory));
@@ -23,7 +23,7 @@ class ReviewParserTest {
 
     @Test
     @SneakyThrows
-    void parseReviewWithMissingFile() {
+    public void parseReviewWithMissingFile() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(
             ReviewPageGenerator.class.getClassLoader().getResource("missingReview")).toURI());
         assertThrows(RuntimeException.class, ()-> ReviewParser.parseReview(reviewDirectory));
@@ -31,7 +31,7 @@ class ReviewParserTest {
 
     @Test
     @SneakyThrows
-    void parseReviewWithoutImage() {
+    public void parseReviewWithoutImage() {
         Path reviewDirectory = Paths.get(Objects.requireNonNull(
             ReviewPageGenerator.class.getClassLoader().getResource("validReviewNoImage")).toURI());
         Review result = ReviewParser.parseReview(reviewDirectory);

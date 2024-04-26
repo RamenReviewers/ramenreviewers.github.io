@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ramenreviewers</groupId>
-  <artifactId>Blog</artifactId>
+  <artifactId>BlogGenerator</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Blog</name>
-  <description>Blog</description>
+  <name>RamenReviewerBlogGenerator</name>
+  <description>RamenReviewerBlogGenerator</description>
   <properties>
     <java.version>21</java.version>
     <maven.compiler.source>21</maven.compiler.source>
@@ -21,12 +21,6 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-thymeleaf</artifactId>
       <version>3.2.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.yaml</groupId>
-      <artifactId>snakeyaml</artifactId>
-      <version>2.2</version>
     </dependency>
 
     <dependency>
