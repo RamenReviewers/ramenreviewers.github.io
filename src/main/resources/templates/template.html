@@ -57,8 +57,8 @@
                 
                 <div class="card-header text-center">
                     <h3 th:text="${review.getShop()}">Ramen Shop Title</h3>
-                    <h5 class="mb-4" th:text="${review.getDish()}">Dish Name</h5>
-                    <h6 class="mb-4" th:text="${#numbers.formatCurrency(review.getPrice())}">Price</h6>
+                    <h5 class="mb-4" th:text="${review.getDish().getName()}">Dish Name</h5>
+                    <h6 class="mb-4" th:text="${#numbers.formatCurrency(review.getDish().getPrice())}">Price</h6>
 
                     <span class="mb-3" th:each="scoreItem : ${#numbers.sequence(1, 5)}">
                         <img class="score-ico ramen-filling"
@@ -74,46 +74,46 @@
 
                 <div class="card-body fs-6 fw-bold d-flex align-items-center justify-content-around flex-wrap text-center">
 
-                    <div th:if="${review.getScoreBroth() >= 0}" class="rating-item">
+                    <div th:if="${review.getDish().getScoreBroth() >= 0}" class="rating-item">
                         <img class="score-ico"
                              src="src/assets/img/broth.png"
                              alt="broth"/>
                         <div>Broth</div>
                         <div>
-                            <span th:text="${review.getScoreBroth()}"></span>
+                            <span th:text="${review.getDish().getScoreBroth()}"></span>
                             <span>/</span>
-                            <span th:text="${review.MAX_SCORE_BROTH}"></span>
+                            <span th:text="${review.MAX_SCORE}"></span>
                         </div>
                     </div>
-                    <div th:if="${review.getScoreNoodles() >= 0}" class="rating-item">
+                    <div th:if="${review.getDish().getScoreNoodles() >= 0}" class="rating-item">
                         <img class="score-ico"
                              src="src/assets/img/noodle.png"
                              alt="noodles"/>
                         <div>Noodles</div>
                         <div>
-                            <span th:text="${review.getScoreNoodles()}"></span>
+                            <span th:text="${review.getDish().getScoreNoodles()}"></span>
                             <span>/</span>
-                            <span th:text="${review.MAX_SCORE_NOODLES}"></span>
+                            <span th:text="${review.MAX_SCORE}"></span>
                         </div>
                     </div>
-                    <div th:if="${review.getScoreToppings() >= 0}" class="rating-item">
+                    <div th:if="${review.getDish().getScoreToppings() >= 0}" class="rating-item">
                         <img class="score-ico"
                              src="src/assets/img/mushroom.png"
                              alt="noodles"/>
                         <div>Toppings</div>
                         <div>
-                            <span th:text="${review.getScoreToppings()}"></span>
+                            <span th:text="${review.getDish().getScoreToppings()}"></span>
                             <span>/</span>
-                            <span th:text="${review.MAX_SCORE_TOPPINGS}"></span>
+                            <span th:text="${review.MAX_SCORE}"></span>
                         </div>
                     </div>
-                    <div th:if="${review.getScoreAtmosphere() >= 0}" class="rating-item">
+                    <div th:if="${review.getShop().getScoreAtmosphere() >= 0}" class="rating-item">
                         <img class="score-ico"
                              src="src/assets/img/restaurant.png"
                              alt="restaurant"/>
                         <div>Atmosphere</div>
                         <div>
-                            <span th:text="${review.getScoreAtmosphere()}"></span>
+                            <span th:text="${review.getShop().getScoreAtmosphere()}"></span>
                             <span>/</span>
                             <span th:text="${review.MAX_SCORE_ATMOSPHERE}"></span>
                         </div>
@@ -121,14 +121,14 @@
                 </div>
 
                 <div class="card-footer text-center">
-                    <i class="bi bi-geo-alt-fill"></i><span class="mx-1" th:text="${review.getLocation()}"></span>
+                    <i class="bi bi-geo-alt-fill"></i><span class="mx-1" th:text="${review.getShop().getCity()}"></span>
                     <br>
                     <i class="bi bi-people-fill"></i>
                     <span th:each=" reviewer: ${review.getReviewers()}"
                           th:text=|&nbsp;${reviewer}|>
                     </span>
                     <br>
-                    <p class="card-link" th:each="link : ${review.getLinks()}">
+                    <p class="card-link" th:each="link : ${review.getShop().getLinks()}">
                         <i class="bi bi-link-45deg"></i>
                         <a th:href="${link.getUrl()}" th:text="${link.getDisplayName()}">Card link</a>
                     </p>

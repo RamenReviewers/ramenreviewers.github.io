@@ -26,7 +26,7 @@ Tonkotsu = new Review.Dish {
 
 review: Review = new Review {
   shop = NikoNiko
-  dishes = List(Tonkotsu)
+  dish = Tonkotsu
   reviewers = List("DerKekz, Icelremius, CrunchNCrisp")
 }
 

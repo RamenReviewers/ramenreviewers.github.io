@@ -11,8 +11,11 @@ import org.pkl.config.java.mapper.Named;
 @NoArgsConstructor
 public class Review {
 
+  public static final int MAX_SCORE = 5;
+  public static final int MAX_SCORE_ATMOSPHERE = 3;
+
   private  Shop shop;
-  private  List<Dish> dishes;
+  private  Dish dish;
   private  List<String> reviewers;
   private int totalScore;
   private List<String> picturePaths;
@@ -20,10 +23,10 @@ public class Review {
 
   public Review(
       @Named("shop") Shop shop,
-      @Named("dishes") List<Dish> dishes,
+      @Named("dish") Dish dish,
       @Named("reviewers") List<String> reviewers) {
     this.shop = shop;
-    this.dishes = dishes;
+    this.dish = dish;
     this.reviewers = reviewers;
   }
 }

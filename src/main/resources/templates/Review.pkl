@@ -1,7 +1,7 @@
 module ramenreviewers.blog.review
 
 shop: Shop
-dishes: List<Dish>(!isEmpty)
+dish: Dish
 reviewers: List<String>
 
 class Dish {
