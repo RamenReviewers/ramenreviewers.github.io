@@ -1,0 +1,34 @@
+import "modulepath:/templates/Review.pkl"
+
+NikoNiko = new Review.Shop {
+  name = "Niko Niko Ramen"
+  address = "1234 Main St"
+  city = "Berlin"
+  zip = "10245"
+  scoreAtmosphere = 3
+  tags = List("Tag1", "Tag2")
+  links = List(
+    new Review.Link {
+      displayName = "Website"
+      url = "https://www.nikonikoramen.com"
+    })
+
+}
+
+Tonkotsu = new Review.Dish {
+  name = "Tonkotsu"
+  price = 12
+  scoreBroth = 5
+  scoreNoodles = 5
+  scoreToppings = 5
+  description = "testDescription"
+}
+
+review: Review = new Review {
+  shop = NikoNiko
+  dishes = List(Tonkotsu)
+  reviewers = List("DerKekz, Icelremius, CrunchNCrisp")
+}
+
+
+

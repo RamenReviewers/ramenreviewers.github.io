@@ -1,0 +1,17 @@
+import "../templates/Review.pkl"
+
+
+shop = new Review.Shop {
+  name = "Niko Niko Ramen"
+  address = "1234 Main St"
+  city = "Berlin"
+  zip = "10245"
+  scoreAtmosphere = 3
+  tags = List("Tag1", "Tag2")
+  links = List(
+    new Review.Link {
+      displayName = "Website"
+      url = "http://www.nikonikoramen.com"
+    })
+
+}

@@ -1,0 +1,20 @@
+import "../../templates/Review.pkl"
+import "../../shops/NikoNikoRamen.pkl"
+
+Tonkotsu = new Review.Dish {
+  name = "Tonkotsu"
+  price = 12
+  scoreBroth = 5
+  scoreNoodles = 5
+  scoreToppings = 5
+  description = "testDescription"
+}
+
+review: Review = new Review {
+  shop = NikoNikoRamen.shop
+  dishes = List(Tonkotsu)
+  reviewers = List("DerKekz, Icelremius, CrunchNCrisp")
+}
+
+
+

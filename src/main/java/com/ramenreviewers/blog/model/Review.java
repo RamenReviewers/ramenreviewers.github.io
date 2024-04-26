@@ -1,71 +1,105 @@
 package com.ramenreviewers.blog.model;
 
-import lombok.*;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.pkl.config.java.mapper.Named;
 
+@Setter
 @Getter
-@EqualsAndHashCode
-public class Review implements Serializable {
+@NoArgsConstructor
+public final class Review {
 
-    private static final String MISSING_PROPERTY_DEFAULT_STRING = "MISSING";
+  private  Shop shop;
+  private  List<Dish> dishes;
+  private  List<String> reviewers;
+  private int totalScore;
+  private List<String> picturePaths;
+  private String id;
 
-    public static final int MAX_TOTAL_SCORE = 5;
-    public static final int MAX_SCORE_BROTH = 5;
-    public static final int MAX_SCORE_NOODLES = 5;
-    public static final int MAX_SCORE_TOPPINGS = 5;
-    public static final int MAX_SCORE_ATMOSPHERE = 3;
-    public static final int MIN_SCORE = -1;
-    public static final int MAX_DESCRIPTION_LENGTH = 2048;
+  public Review(
+      @Named("shop") Shop shop,
+      @Named("dishes") List<Dish> dishes,
+      @Named("reviewers") List<String> reviewers) {
+    this.shop = shop;
+    this.dishes = dishes;
+    this.reviewers = reviewers;
+  }
 
-    private @Setter String id = MISSING_PROPERTY_DEFAULT_STRING;
-    private @Setter String shop = MISSING_PROPERTY_DEFAULT_STRING;
-    private @Setter String dish = MISSING_PROPERTY_DEFAULT_STRING;
-    private @Setter List<String> reviewers;
-    private @Setter String location = MISSING_PROPERTY_DEFAULT_STRING;
-    private float scoreBroth = -1;
-    private float scoreNoodles = -1;
-    private float scoreToppings = -1;
-    private float scoreAtmosphere = -1;
-    private @Setter List<String> picturePaths = new ArrayList<>();
-    private @Setter List<Link> links;
-    private @Setter float price = -1;
-    private @Setter List<String> tags;
-    private String description;
 
-    @Data
-    @EqualsAndHashCode
-    public static class Link {
-        private String displayName;
-        private String url;
+
+  @Getter
+  @NoArgsConstructor
+  public static final class Dish {
+
+    private  String name;
+    private  int price;
+    private  int scoreBroth;
+    private  int scoreNoodles;
+    private  int scoreToppings;
+    private  String description;
+
+    public Dish(
+        @Named("name") String name,
+        @Named("price") int price,
+        @Named("scoreBroth") int scoreBroth,
+        @Named("scoreNoodles") int scoreNoodles,
+        @Named("scoreToppings") int scoreToppings,
+        @Named("description") String description) {
+      this.name = name;
+      this.price = price;
+      this.scoreBroth = scoreBroth;
+      this.scoreNoodles = scoreNoodles;
+      this.scoreToppings = scoreToppings;
+      this.description = description;
+    }
+  }
+
+  @Getter
+  public static final class Shop {
+
+    private final String name;
+    private final String address;
+    private final String city;
+    private final String zip;
+    private final List<String> tags;
+    private final List<Link> links;
+    private final int scoreAtmosphere;
+
+    public Shop(
+        @Named("name") String name,
+        @Named("address") String address,
+        @Named("city") String city,
+        @Named("zip") String zip,
+        @Named("tags") List<String> tags,
+        @Named("links") List<Link> links,
+        @Named("scoreAtmosphere") int scoreAtmosphere) {
+      this.name = name;
+      this.address = address;
+      this.city = city;
+      this.zip = zip;
+      this.tags = tags;
+      this.links = links;
+      this.scoreAtmosphere = scoreAtmosphere;
     }
 
-    public void setScoreBroth(float scoreBroth) {
-        this.scoreBroth = Math.clamp(scoreBroth, MIN_SCORE, MAX_SCORE_BROTH);
-    }
+  }
 
-    public void setScoreNoodles(float scoreNoodles) {
-        this.scoreNoodles = Math.clamp(scoreNoodles, MIN_SCORE, MAX_SCORE_NOODLES);
-    }
+  @Getter
+  public static final class Link {
 
-    public void setScoreToppings(float scoreToppings) {
-        this.scoreToppings = Math.clamp(scoreToppings, MIN_SCORE, MAX_SCORE_TOPPINGS);
-    }
+    private final String url;
+    private final String displayName;
 
-    public void setScoreAtmosphere(float scoreAtmosphere) {
-        this.scoreAtmosphere = Math.clamp(scoreAtmosphere, MIN_SCORE, MAX_SCORE_BROTH);
+    public Link(
+        @Named("url") String url,
+        @Named("displayName") String displayName) {
+      this.url = url;
+      this.displayName = displayName;
     }
+  }
 
-    public void setDescription(String description) {
-        if(description.length() > MAX_DESCRIPTION_LENGTH) throw new RuntimeException(
-                "Description length exceeds the character limit");
-        this.description = description;
-    }
-
-    public float getTotalScore() {
-        return MAX_TOTAL_SCORE * (scoreBroth + scoreNoodles + scoreToppings + scoreAtmosphere)
-                / (MAX_SCORE_BROTH + MAX_SCORE_NOODLES + MAX_SCORE_TOPPINGS + MAX_SCORE_ATMOSPHERE);
-    }
 }
+
+

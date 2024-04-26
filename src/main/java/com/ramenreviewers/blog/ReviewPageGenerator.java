@@ -9,10 +9,10 @@ import java.net.URISyntaxException;
 import java.nio.file.Paths;
 import java.util.*;
 
-import static com.ramenreviewers.blog.ReviewYmlParser.parseReview;
+import static com.ramenreviewers.blog.ReviewParser.parseReview;
 
 
-public class BlogApplication {
+public class ReviewPageGenerator {
 
     private static final String REVIEWS_DIRECTORY = "reviews";
 
@@ -22,7 +22,7 @@ public class BlogApplication {
         // get all reviews and parse them
         List<Review> reviews;
         File[] reviewDirectories = new File(
-                Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource(REVIEWS_DIRECTORY)).toURI()
+                Objects.requireNonNull(ReviewPageGenerator.class.getClassLoader().getResource(REVIEWS_DIRECTORY)).toURI()
         ).listFiles();
 
         if (reviewDirectories == null) {
