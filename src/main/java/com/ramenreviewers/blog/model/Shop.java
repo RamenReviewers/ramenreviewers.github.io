@@ -13,7 +13,7 @@ public final class Shop {
   private final String zip;
   private final List<String> tags;
   private final List<Link> links;
-  private final int scoreAtmosphere;
+  private final float scoreAtmosphere;
 
   public Shop(
       @Named("name") String name,
@@ -22,7 +22,7 @@ public final class Shop {
       @Named("zip") String zip,
       @Named("tags") List<String> tags,
       @Named("links") List<Link> links,
-      @Named("scoreAtmosphere") int scoreAtmosphere) {
+      @Named("scoreAtmosphere") float scoreAtmosphere) {
     this.name = name;
     this.address = address;
     this.city = city;

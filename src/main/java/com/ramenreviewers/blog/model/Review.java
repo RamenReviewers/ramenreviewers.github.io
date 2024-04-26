@@ -17,7 +17,6 @@ public class Review {
   private  Shop shop;
   private  Dish dish;
   private  List<String> reviewers;
-  private int totalScore;
   private List<String> picturePaths;
   private String id;
 
@@ -28,6 +27,12 @@ public class Review {
     this.shop = shop;
     this.dish = dish;
     this.reviewers = reviewers;
+  }
+
+  // used by thymeleaf template, do not remove
+  public float getTotalScore() {
+    return MAX_SCORE * (dish.getScoreBroth() + dish.getScoreNoodles() + dish.getScoreToppings() + shop.getScoreAtmosphere())
+        / (3 * MAX_SCORE + MAX_SCORE_ATMOSPHERE);
   }
 }
 

@@ -3,11 +3,11 @@ import "../templates/Review.pkl"
 
 shop = new Review.Shop {
   name = "Niko Niko Ramen"
-  address = "1234 Main St"
+  address = "Boxhagener Straße 26"
   city = "Berlin"
   zip = "10245"
-  scoreAtmosphere = 3
-  tags = List("Tag1", "Tag2")
+  scoreAtmosphere = 2
+  tags = List("Vegan Freindly", "Busy")
   links = List(
     new Review.Link {
       displayName = "Website"

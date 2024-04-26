@@ -56,7 +56,7 @@
                 <img th:unless="${review.getPicturePaths().size() > 1}" th:src="${review.getPicturePaths().get(0)}">
                 
                 <div class="card-header text-center">
-                    <h3 th:text="${review.getShop()}">Ramen Shop Title</h3>
+                    <h3 th:text="${review.getShop().getName()}">Ramen Shop Title</h3>
                     <h5 class="mb-4" th:text="${review.getDish().getName()}">Dish Name</h5>
                     <h6 class="mb-4" th:text="${#numbers.formatCurrency(review.getDish().getPrice())}">Price</h6>
 

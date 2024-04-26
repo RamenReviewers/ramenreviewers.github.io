@@ -6,10 +6,10 @@ reviewers: List<String>
 
 class Dish {
   name: String(!isEmpty)
-  price: Int(isPositive)
-  scoreBroth: Int(isBetween(0,5))
-  scoreNoodles: Int(isBetween(0,5))
-  scoreToppings: Int(isBetween(0,5))
+  price: Number(isPositive)
+  scoreBroth: Number(isBetween(0,5))
+  scoreNoodles: Number(isBetween(0,5))
+  scoreToppings: Number(isBetween(0,5))
   description: String(!isEmpty, length < 2048)
 }
 
@@ -20,7 +20,7 @@ class Shop {
   zip: String(!isEmpty)
   tags: List<String>(!isEmpty)
   links: List<Link>(!isEmpty)
-  scoreAtmosphere: Int(isBetween(0,3))
+  scoreAtmosphere: Number(isBetween(0,3))
 }
 
 class Link {

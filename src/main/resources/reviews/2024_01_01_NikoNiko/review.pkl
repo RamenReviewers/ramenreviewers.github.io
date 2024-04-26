@@ -3,10 +3,10 @@ import "../../shops/NikoNikoRamen.pkl"
 
 Tonkotsu = new Review.Dish {
   name = "Tonkotsu"
-  price = 12
+  price = 14.5
   scoreBroth = 5
-  scoreNoodles = 5
-  scoreToppings = 5
+  scoreNoodles = 3.5
+  scoreToppings = 4
   description = "testDescription"
 }
 
