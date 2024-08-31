@@ -12,24 +12,28 @@ import java.util.*;
 import static com.ramenreviewers.blog.ReviewYmlParser.parseReview;
 
 
-public class BlogApplication {
+public class PageGenerator {
 
     private static final String REVIEWS_DIRECTORY = "reviews";
 
 
-    public static void main(String[] args) throws URISyntaxException {
+    public static void main(String[] args) {
 
         // get all reviews and parse them
-        List<Review> reviews;
-        File[] reviewDirectories = new File(
-                Objects.requireNonNull(BlogApplication.class.getClassLoader().getResource(REVIEWS_DIRECTORY)).toURI()
-        ).listFiles();
+        File[] reviewDirectories;
+        try {
+            reviewDirectories = new File(
+                    Objects.requireNonNull(PageGenerator.class.getClassLoader().getResource(REVIEWS_DIRECTORY)).toURI()
+            ).listFiles();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException("Error getting review directory: ", e);
+        }
 
         if (reviewDirectories == null) {
             throw new RuntimeException("no review directories");
         }
 
-        reviews = Arrays.stream(reviewDirectories)
+        List<Review> reviews = Arrays.stream(reviewDirectories)
                 .map(directory -> parseReview(Paths.get(String.valueOf(directory))))
                 .toList();
 
