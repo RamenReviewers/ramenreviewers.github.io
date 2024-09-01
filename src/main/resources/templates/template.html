@@ -22,6 +22,10 @@
 
 <!-- Bootstrap JS and Popper.js via CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!--- Html2Canvas --->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js"
+        integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <body>
 
@@ -34,27 +38,29 @@
 
     <div class="row justify-content-start gy-4 gx-4 mx-1">
         <div class="col-auto" th:each="review : ${reviews}">
-            <div class="card border-0 text-dark">
-
-                <div th:if="${review.getPicturePaths().size() > 1}" th:id="'carousel' + ${review.getId()}" class="carousel slide card-img-top border-0 shadow" data-ride="carousel">
+            <div class="card border-0 text-dark" th:id="'card-' + ${review.getId()}">
+                <div th:if="${review.getPicturePaths().size() > 1}" th:id="'carousel' + ${review.getId()}"
+                     class="carousel slide card-img-top border-0 shadow" data-ride="carousel">
                     <div class="carousel-inner">
                         <div th:each="img, iterStat : ${review.getPicturePaths()}"
                              th:class="'carousel-item ' + ${iterStat.index == 0 ? 'active' : ''}">
-                            <img class="d-block w-100" th:src="${img}" alt="Ramen">
+                            <img class="d-block w-100 border-0 rounded-top" th:src="${img}" alt="Ramen">
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" th:data-bs-target="'#carousel' + ${review.getId()}" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button"
+                            th:data-bs-target="'#carousel' + ${review.getId()}" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" th:data-bs-target="'#carousel' + ${review.getId()}" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button"
+                            th:data-bs-target="'#carousel' + ${review.getId()}" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
 
-                <img th:unless="${review.getPicturePaths().size() > 1}" th:src="${review.getPicturePaths().get(0)}">
-                
+                <img class="border-0 rounded-top" th:unless="${review.getPicturePaths().size() > 1}" th:src="${review.getPicturePaths().get(0)}">
+
                 <div class="card-header text-center">
                     <h3 th:text="${review.getShop()}">Ramen Shop Title</h3>
                     <h5 class="mb-4" th:text="${review.getDish()}">Dish Name</h5>
@@ -131,7 +137,10 @@
                     <p class="card-link" th:each="link : ${review.getLinks()}">
                         <i class="bi bi-link-45deg"></i>
                         <a th:href="${link.getUrl()}" th:text="${link.getDisplayName()}">Card link</a>
+                        <button class="btn download-btn" th:data-id="${review.getId()}"><strong><i
+                                class="bi bi-download"></i></strong></button>
                     </p>
+
                 </div>
             </div>
         </div>
@@ -140,7 +149,7 @@
 
 </body>
 
-<footer class="text-center">
+<footer class="text-center mt-3">
     <p>Ramen icons created by <a href="https://www.flaticon.com/free-icons/ramen" title="ramen icons">Freepik -
         Flaticon</a>
     </p>
@@ -176,3 +185,31 @@
 </footer>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Attach click event to all download buttons
+        document.querySelectorAll('.download-btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Get the id of the card to capture
+                let cardId = button.getAttribute('data-id');
+                let cardElement = document.getElementById('card-' + cardId);
+
+                // Use html2canvas to capture the card element
+                html2canvas(cardElement).then(canvas => {
+                    let imgData = canvas.toDataURL("image/png");
+
+                    // Create a temporary link element
+                    let link = document.createElement('a');
+                    link.href = imgData;
+
+                    // Set the download attribute with a filename
+                    link.download = `card-${cardId}.png`;
+
+                    // Trigger the download by clicking the link
+                    link.click();
+                });
+            });
+        });
+    });
+</script>
