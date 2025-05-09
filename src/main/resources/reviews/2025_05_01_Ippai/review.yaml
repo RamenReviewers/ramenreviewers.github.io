@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Ippai No Ramen"
+dish: "Creamy Curry Ramen"
+reviewers: ["CrunchNCrisp"]
+price: 15
+scoreBroth: 2
+scoreNoodles: 5
+scoreToppings: 2
+scoreAtmosphere: 3
+location: "Berlin"
+tags: []
+description: ""
+links:
+  -
+    displayName: "ramenberlin.com"
+    url: "https://ramenberlin.com/"

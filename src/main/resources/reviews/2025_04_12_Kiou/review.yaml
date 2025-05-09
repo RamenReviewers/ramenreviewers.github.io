@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Ramen Kiou"
+dish: "Soy Sauce"
+reviewers: ["Ice", "CrunchNCrisp"]
+price: 8
+scoreBroth: 0
+scoreNoodles: 3
+scoreToppings: 4
+scoreAtmosphere: 1
+location: "Osaka"
+tags: []
+description: ""
+links:
+  -
+    displayName: "www.kiou.co.jp"
+    url: "http://www.kiou.co.jp/"

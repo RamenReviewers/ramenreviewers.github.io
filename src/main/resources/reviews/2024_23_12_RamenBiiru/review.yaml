@@ -1,0 +1,17 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Ramen Biiru"
+dish: "Gentle Kinoko"
+reviewers: ["CrunchNCrisp"]
+price: 14.50
+scoreBroth: 4.5
+scoreNoodles: 5
+scoreToppings: 2
+scoreAtmosphere: 2.5
+location: "Malmö"
+tags: []
+description: ""
+links:
+  -
+    displayName: "ramentobiiru.se"
+    url: "http://www.ramentobiiru.se/"
+

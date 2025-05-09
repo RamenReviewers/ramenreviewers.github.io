@@ -1,0 +1,15 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Momototo Kamppi"
+dish: "Tonkutsu Vegetarian"
+reviewers: [ "Maeby" ]
+price: 15.80
+scoreBroth: 4.5
+scoreNoodles: 2
+scoreToppings: 3
+scoreAtmosphere: 1
+location: "Helsinki"
+tags: [ ]
+description: ""
+links:
+  - displayName: "momotoko.com"
+    url: "https://momotoko.com/en/ramen-restaurant/momotoko-helsinki/#kamppi"

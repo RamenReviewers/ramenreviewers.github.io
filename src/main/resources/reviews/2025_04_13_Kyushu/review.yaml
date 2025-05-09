@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Kyushu Jangara Ramen"
+dish: "Tonkutsu"
+reviewers: ["CrunchNCrisp"]
+price: 7.50
+scoreBroth: 5
+scoreNoodles: 2
+scoreToppings: 4
+scoreAtmosphere: 3
+location: "Tokyo"
+tags: []
+description: ""
+links:
+  -
+    displayName: "kyushujangara.co.jp"
+    url: "https://kyushujangara.co.jp/shops/veganbistro/"

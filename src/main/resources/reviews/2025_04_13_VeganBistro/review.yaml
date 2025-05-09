@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Vegan Bistro Jangara"
+dish: "Soy Sauce"
+reviewers: ["Ice"]
+price: 7.50
+scoreBroth: 5
+scoreNoodles: 3
+scoreToppings: 3
+scoreAtmosphere: 3
+location: "Tokyo"
+tags: []
+description: ""
+links:
+  -
+    displayName: "kyushujangara.co.jp"
+    url: "https://kyushujangara.co.jp/shops/veganbistro/"

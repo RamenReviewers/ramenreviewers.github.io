@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Shisomen Vegan Ramen"
+dish: "Vegan Duck Ramen"
+reviewers: ["DerKekZ", "CrunchNCrisp", "Ice"]
+price: 11.90
+scoreBroth: 4.5
+scoreNoodles: 4
+scoreToppings: 4
+scoreAtmosphere: 2
+location: "Berlin"
+tags: []
+description: ""
+links:
+  -
+    displayName: "shisomen.de"
+    url: "https://www.shisomen.de/"

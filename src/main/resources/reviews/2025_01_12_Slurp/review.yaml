@@ -1,0 +1,15 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Slurp Noodle Bar"
+dish: "Spicy Tofu"
+reviewers: [ "DerKekz" ]
+price: 13.50
+scoreBroth: 3
+scoreNoodles: 2.5
+scoreToppings: 5
+scoreAtmosphere: 2.5
+location: "München"
+tags: [ ]
+description: ""
+links:
+  - displayName: "slurp-nudelbar-muenchen.de"
+    url: "https://www.slurp-nudelbar-muenchen.de/review"

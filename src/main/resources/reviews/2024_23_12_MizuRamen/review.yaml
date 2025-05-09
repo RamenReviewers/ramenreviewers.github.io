@@ -1,0 +1,17 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "MizuRamen"
+dish: "Vegi Katsu"
+reviewers: ["CrunchNCrisp"]
+price: 14.90
+scoreBroth: 4
+scoreNoodles: 5
+scoreToppings: 3.5
+scoreAtmosphere: 3
+location: "Berlin"
+tags: []
+description: ""
+links:
+  -
+    displayName: "mizuramen.de"
+    url: "https://www.mizuramen.de/"
+

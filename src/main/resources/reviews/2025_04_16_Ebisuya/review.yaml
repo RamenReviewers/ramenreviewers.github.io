@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "EBISUYA Main Store"
+dish: "Shoyu Ramen"
+reviewers: ["Ice"]
+price: 7
+scoreBroth: 3.5
+scoreNoodles: 3.5
+scoreToppings: 3
+scoreAtmosphere: 1.5
+location: "Osaka"
+tags: []
+description: ""
+links:
+  -
+    displayName: "hirotaka-group.com"
+    url: "https://www.hirotaka-group.com/ebisuya.html"

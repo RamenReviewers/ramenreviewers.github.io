@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Daizu Vegan Ramen"
+dish: "Chasu Shoyu"
+reviewers: ["CrunchNCrisp"]
+price: 12
+scoreBroth: 3
+scoreNoodles: 2
+scoreToppings: 3
+scoreAtmosphere: 2
+location: "Berlin"
+tags: []
+description: ""
+links:
+  -
+    displayName: "sites.google.com/view/daizuramen"
+    url: "https://sites.google.com/view/daizuramen"

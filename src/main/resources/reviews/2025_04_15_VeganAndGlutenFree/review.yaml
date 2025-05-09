@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Vegan And Gluten Free Osaka"
+dish: "Vegetable Soy Milk"
+reviewers: ["CrunchNCrisp"]
+price: 9
+scoreBroth: 2
+scoreNoodles: 2
+scoreToppings: 4
+scoreAtmosphere: 2
+location: "Osaka"
+tags: []
+description: ""
+links:
+  -
+    displayName: "veganandglutenfree-osaka.com"
+    url: "https://www.veganandglutenfree-osaka.com/"
