@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Merry momo"
+dish: "Shio Ramen"
+reviewers: ["Ice"]
+price: 7
+scoreBroth: 3
+scoreNoodles: 4
+scoreToppings: 4
+scoreAtmosphere: 2.5
+location: "Osaka"
+tags: []
+description: ""
+links:
+  -
+    displayName: "merrymomo.jimdosite.com"
+    url: "https://merrymomo.jimdosite.com/"

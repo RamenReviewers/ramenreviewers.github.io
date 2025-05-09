@@ -1,0 +1,15 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "EArth Tokyo"
+dish: "Tonkutsu Vegetarian"
+reviewers: [ "DerKekz" ]
+price: 13.50
+scoreBroth: 2.5
+scoreNoodles: 3
+scoreToppings: 1.5
+scoreAtmosphere: 3
+location: "Warsaw"
+tags: [ ]
+description: ""
+links:
+  - displayName: "elektrowniapowisle.com"
+    url: "https://elektrowniapowisle.com/food-hall-i-bary/"

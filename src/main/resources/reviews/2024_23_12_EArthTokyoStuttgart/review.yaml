@@ -1,0 +1,15 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "EArth Tokyo: Berlin Popup"
+dish: "Tonkutsu Vegetarian"
+reviewers: [ "Ice", "CrunchNCrisp" ]
+price: 13
+scoreBroth: 1.5
+scoreNoodles: 3
+scoreToppings: 3.5
+scoreAtmosphere: 1
+location: "Berlin"
+tags: [ ]
+description: ""
+links:
+  - displayName: "earth-tokyo.de"
+    url: "https://earth-tokyo.de/"

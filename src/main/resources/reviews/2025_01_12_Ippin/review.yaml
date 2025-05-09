@@ -1,0 +1,15 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Ippin Ramen"
+dish: "Vegan Shoyu"
+reviewers: [ "DerKekz" ]
+price: 13.50
+scoreBroth: 3.5
+scoreNoodles: 4.5
+scoreToppings: 1.5
+scoreAtmosphere: 2.5
+location: "Mönchengladbach"
+tags: [ ]
+description: ""
+links:
+  - displayName: "ramen-ippin.de"
+    url: "https://ramen-ippin.de/"

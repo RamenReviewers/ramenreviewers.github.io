@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "MoonAndBack"
+dish: "Vegetable Soy Ramen"
+reviewers: ["Ice", "CrunchNCrisp"]
+price: 7.70
+scoreBroth: 4.5
+scoreNoodles: 4
+scoreToppings: 4
+scoreAtmosphere: 1
+location: "Osaka"
+tags: []
+description: ""
+links:
+  -
+    displayName: "moonandbackkyoto.com"
+    url: "https://www.moonandbackkyoto.com/"

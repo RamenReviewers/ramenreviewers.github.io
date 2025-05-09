@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Ra-Men Akasaka Mizuna"
+dish: "Soy Milk"
+reviewers: ["Ice", "CrunchNCrisp"]
+price: 7.40
+scoreBroth: 4
+scoreNoodles: 5
+scoreToppings: 3.5
+scoreAtmosphere: 2
+location: "Tokyo"
+tags: []
+description: ""
+links:
+  -
+    displayName: "ramen-mizna.com"
+    url: "https://ramen-mizna.com/#cb_3"

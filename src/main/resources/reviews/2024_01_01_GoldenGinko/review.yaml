@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Golden Ginko"
+dish: "Tonkutsu"
+reviewers: ["Ice", "DerKekZ", "CrunchNCrisp"]
+price: 15.90
+scoreBroth: 4.5
+scoreNoodles: 4
+scoreToppings: 4
+scoreAtmosphere: 3
+location: "Berlin"
+tags: []
+description: ""
+links:
+  -
+    displayName: "golden-ginkgo.de"
+    url: "https://golden-ginkgo.de"

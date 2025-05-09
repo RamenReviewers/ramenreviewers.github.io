@@ -1,0 +1,15 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Umaii"
+dish: "Vegan Inari"
+reviewers: [ "CrunchNCrisp", "Ice" ]
+price: 15.10
+scoreBroth: 4.5
+scoreNoodles: 3.5
+scoreToppings: 5
+scoreAtmosphere: 2
+location: "Dresden"
+tags: [ ]
+description: ""
+links:
+  - displayName: "umaii.de"
+    url: "https://umaii.de/dresden"

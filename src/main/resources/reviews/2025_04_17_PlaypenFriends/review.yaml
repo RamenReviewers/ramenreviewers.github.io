@@ -1,0 +1,16 @@
+!!com.ramenreviewers.blog.model.Review
+shop: "Playpen Friends"
+dish: "Yuzu Shoyu"
+reviewers: ["Ice", "CrunchNCrisp"]
+price: 8
+scoreBroth: 4
+scoreNoodles: 5
+scoreToppings: 3
+scoreAtmosphere: 2
+location: "Nara"
+tags: []
+description: ""
+links:
+  -
+    displayName: "Happy Cow"
+    url: "https://www.happycow.net/reviews/vegan-friendly-ramen-by-playpen-friends-nara-421570"
